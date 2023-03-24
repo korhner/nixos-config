@@ -52,8 +52,8 @@ wipefs -af "$disk_name"
 sgdisk -Zo "$disk_name"
 sgdisk --clear \
        --new=1:0:+550Mib                       --typecode=1:ef00 --change-name=1:"$BOOT_PARTITION_NAME" \
-       --new=2:0:+"$swap_partition_size_mb"Mib --typecode=3:8200 --change-name=3:"$SWAP_PARTITION_NAME" \
-       --new=3:0:0                             --typecode=1:8309 --change-name=2:"$CRYPTED_PARTITION_NAME" \
+       --new=2:0:+"$swap_partition_size_mb"Mib --typecode=2:8200 --change-name=2:"$SWAP_PARTITION_NAME" \
+       --new=3:0:0                             --typecode=3:8309 --change-name=3:"$CRYPTED_PARTITION_NAME" \
          "$disk_name"
 
 wait_seconds=10
