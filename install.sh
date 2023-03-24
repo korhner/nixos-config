@@ -81,7 +81,7 @@ mount -o subvol=home,defaults,compress=lzo,X-mount.mkdir LABEL="$DECRYPTED_PARTI
 mount -o subvol=nix,defaults,compress=lzo,X-mount.mkdir LABEL="$DECRYPTED_PARTITION_NAME" /mnt/nix
 mount -o subvol=persist,defaults,compress=lzo,X-mount.mkdir LABEL="$DECRYPTED_PARTITION_NAME" /mnt/persist
 
-mount -o subvol=@swap,X-mount.mkdir LABEL="$DECRYPTED_PARTITION_NAME" /mnt/swap
+mount -o subvol=swap,X-mount.mkdir LABEL="$DECRYPTED_PARTITION_NAME" /mnt/swap
 touch /mnt/swap/swapfile
 chmod 600 /mnt/swap/swapfile
 chattr +C /mnt/swap/swapfile
