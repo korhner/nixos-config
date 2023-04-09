@@ -124,6 +124,10 @@ in
       serviceConfig.RemainAfterExit = true;
       serviceConfig.ExecStart = ''${save-root}/bin/save-root /run/initial-root'';
     };
+
+    nixpkgs.hostPlatform.system = "x86_64-linux";
+    hardware.cpu.amd.updateMicrocode = true;
+    powerManagement.cpuFreqGovernor = "powersave";
   };
 
   options.partitions-create = with lib; mkOption rec {
