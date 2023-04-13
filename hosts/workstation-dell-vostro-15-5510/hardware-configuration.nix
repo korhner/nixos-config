@@ -1,7 +1,7 @@
 {
   imports = [
     ../common/optional/btrfs-optin-persistence.nix
-    ../common/optional/encrypted-root.nix
+    ../common/optional/emphemeral-btrfs.nix
   ];
 
   boot = {
@@ -21,23 +21,23 @@
     };
   };
 
-  boot.initrd.luks.devices."$DECRYPTED_PARTITION_NAME".device = "/dev/disk/by-partlabel/$CRYPTED_PARTITION_NAME";
-
-
-  fileSystems = {
-    "/boot" = {
-      device = "/dev/disk/by-label/ESP";
-      fsType = "vfat";
-    };
-  };
-
-  swapDevices = [{
-    device = "/swap/swapfile";
-    size = 8196;
-  }];
+#  boot.initrd.luks.devices."$DECRYPTED_PARTITION_NAME".device = "/dev/disk/by-partlabel/$CRYPTED_PARTITION_NAME";
+#
+#
+#  fileSystems = {
+#    "/boot" = {
+#      device = "/dev/disk/by-label/ESP";
+#      fsType = "vfat";
+#    };
+#  };
+#
+#  swapDevices = [{
+#    device = "/swap/swapfile";
+#    size = 8196;
+#  }];
 
   nixpkgs.hostPlatform.system = "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = true;
   # TODO what is this
-  powerManagement.cpuFreqGovernor = "powersave";
+#  powerManagement.cpuFreqGovernor = "powersave";
 }

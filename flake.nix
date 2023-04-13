@@ -13,7 +13,10 @@
     hardware.url = "github:nixos/nixos-hardware";
     impermanence.url = "github:nix-community/impermanence";
 
-#    sops-nix.url = "github:mic92/sops-nix";
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -29,7 +32,6 @@
     in
     {
       nixosConfigurations = {
-        # Laptop
         workstation = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           modules = [ ./hosts/workstation-dell-vostro-15-5510 ];
@@ -40,7 +42,7 @@
         "ivank@workstation-dell-vostro-15-5510" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages."x86_64-linux";
           extraSpecialArgs = { inherit inputs outputs; };
-          modules = [ ./home/misterio/atlas.nix ];
+          modules = [ ./users/ivank/workstation.nix ];
         };
       };
     };

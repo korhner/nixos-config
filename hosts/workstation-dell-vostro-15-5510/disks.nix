@@ -69,7 +69,7 @@ in
 {
   config = {
 
-    # TODO
+    # TODO check if this or home manager show do this
     environment.persistence."/persist" = {
       directories = [
 
