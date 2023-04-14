@@ -2,7 +2,7 @@
 { lib, inputs, outputs, ... }:
 {
   imports = [
-#    inputs.impermanence.nixosModules.impermanence
+    inputs.impermanence.nixosModules.impermanence
     inputs.home-manager.nixosModules.home-manager
     ./docker.nix
     ./locale.nix
@@ -23,7 +23,11 @@
 
   environment = {
     persistence = {
-      "/persist".directories = [ "/var/lib/systemd" "/var/log" "/srv" ];
+      "/persist".directories = [
+        "/var/lib/systemd"
+        "/var/log"
+        "/srv"
+      ];
     };
     enableAllTerminfo = true;
   };
