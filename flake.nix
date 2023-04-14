@@ -32,7 +32,7 @@
     in
     {
       nixosConfigurations = {
-        workstation = nixpkgs.lib.nixosSystem {
+        "workstation-dell-vostro-15-5510" = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           modules = [ ./hosts/workstation-dell-vostro-15-5510 ];
         };

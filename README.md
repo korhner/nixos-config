@@ -30,12 +30,13 @@ nix build (or shell or run) To build and use packages
 sudo su
 nix-shell -p git
 git clone https://github.com/korhner/nixos-config.git
-mkdir -p ~/.config/nix
-echo "experimental-features = nix-command flakes" > ~/.config/nix/nix.conf
+CTRL + D to exit shell
+cd script
 ```
-- Run disko to format disk (change host) `nix run github:nix-community/disko -- -m zap_create_mount ./hosts/workstation-dell-vostro-15-5510/disko.nix`
-- Run `nixos-generate-config --root /mnt` and update hardware-configuration.nix if needed.
+- Run `./format.sh` (edit host inside script)
 - Run `nixos-install --flake .#workstation-dell-vostro-15-5510` (change host)
+- Reboot
+- Change user password with `passwd`
 
 ## Debugging the flake
 ```shell

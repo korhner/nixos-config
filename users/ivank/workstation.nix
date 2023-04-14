@@ -3,6 +3,7 @@ in
 {
   users.mutableUsers = false;
   users.users.ivank = {
+    initialPassword = "qwe123";
     isNormalUser = true;
     extraGroups = [
       "wheel"
