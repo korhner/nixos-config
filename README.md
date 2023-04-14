@@ -16,32 +16,39 @@ nix build (or shell or run) To build and use packages
 ## Adding new machine
 
 - Create new folder under in `hosts` dir
-- Modify disko.nix
+- Modify hardware-configuration.nix
   - Change disk name. Find disk by running `lsblk -p`. For dell vostro, it's `/dev/sda`
   - Adjust swap partition size
     - Check this for reference https://itsfoss.com/swap-size/
     - Value needs to be set both on luks (end) and swap (start) partitions
+- Modify default.nix
+  - Change user, hostname, ...
 
 ## Installing nixos
 
 - Download nixos iso minimal image and boot to it (TODO more instructions)
-- Prepare environment:
+
+- Run this in ISO
 ```shell
 sudo su
 nix-shell -p git
 git clone https://github.com/korhner/nixos-config.git
 CTRL + D to exit shell
 cd nixos-config/script
+bash format.sh (edit host inside script)
+cd ..
+nixos-install --flake .#workstation-dell-vostro-15-5510 --no-root-passwd` (change host)
 ```
-- Run `bash format.sh` (edit host inside script)
-- Run `nixos-install --flake .#workstation-dell-vostro-15-5510 --no-root-passwd` (change host)
-- Reboot
-- Remove boot medium and reboot
-- git clone https://github.com/korhner/nixos-config.git
-- nixos-rebuild switch --flake .#
-- nix build .#homeConfigurations.ivank@workstation-dell-vostro-15-5510.activationPackage
-- ./result/activate
-- Change user password with `passwd`
+
+Remove boot medium, reboot, run this in system
+```shell
+passwd (change user password)
+git clone https://github.com/korhner/nixos-config.git
+cd nixos-config
+sudo nixos-rebuild switch --flake .#
+nix build .#homeConfigurations.ivank@workstation-dell-vostro-15-5510.activationPackage
+./result/activate
+```
 
 ## Debugging the flake
 ```shell

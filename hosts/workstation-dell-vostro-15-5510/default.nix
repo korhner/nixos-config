@@ -9,7 +9,6 @@
     ./hardware-configuration.nix
 
     ../common/global
-#    ../../users/ivank
   ];
   users.users = {
     ivank = {
