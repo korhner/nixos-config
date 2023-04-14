@@ -23,21 +23,18 @@
             }
             {
               type = "partition";
-              name = "luks";
+              name = "cryptsystem";
               start = "550MiB";
               end = "-4G";
               content = {
                 type = "luks";
-                name = "cryptsystem";
+                name = "system";
                 content = {
                   type = "btrfs";
-                  mountpoint = "/";
                   mountOptions = [ "compress=zstd" "noatime" ];
                   extraArgs = [ "--label system" ];
                   subvolumes = {
-                    "/root" = {
-                      mountpoint = "/";
-                    };
+                    "/root" = {};
                     "/nix" = {};
                     "/home" = {};
                     "/persist" = {};
