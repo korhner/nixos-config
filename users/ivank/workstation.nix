@@ -1,6 +1,4 @@
-{ pkgs, config, lib, outputs, ... }:
-in
-{
+{ pkgs, config, lib, outputs, ... }: {
   users.mutableUsers = false;
   users.users.ivank = {
     initialPassword = "qwe123";

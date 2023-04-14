@@ -31,11 +31,15 @@ sudo su
 nix-shell -p git
 git clone https://github.com/korhner/nixos-config.git
 CTRL + D to exit shell
-cd script
+cd nixos-config/script
 ```
-- Run `./format.sh` (edit host inside script)
+- Run `bash format.sh` (edit host inside script)
 - Run `nixos-install --flake .#workstation-dell-vostro-15-5510` (change host)
 - Reboot
+- Remove boot medium and reboot
+- git clone https://github.com/korhner/nixos-config.git
+- nixos-rebuild switch --flake .#
+- home-manager --flake .#ivank@workstation-dell-vostro-15-5510
 - Change user password with `passwd`
 
 ## Debugging the flake
@@ -46,5 +50,5 @@ outputs
 ```
 
 ## Testing on VirtualBox
-- Create a linux 64bit VM, with at least 4 CPU and 6GB RAM
+- Create a linux 64bit VM, with at least 5 CPU and 6GB RAM (experiment with different values if you get black screen)
 - Mount minimal iso install
