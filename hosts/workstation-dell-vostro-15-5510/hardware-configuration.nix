@@ -1,7 +1,7 @@
-{ disko, ... }: {
+{ inputs, ... }: {
   imports = [
     ./disko.nix
-    disko.nixosModules.disko
+    inputs.disko.nixosModules.disko
     ../common/optional/emphemeral-btrfs.nix
   ];
 
