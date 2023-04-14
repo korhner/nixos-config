@@ -39,7 +39,8 @@ cd nixos-config/script
 - Remove boot medium and reboot
 - git clone https://github.com/korhner/nixos-config.git
 - nixos-rebuild switch --flake .#
-- home-manager --flake .#ivank@workstation-dell-vostro-15-5510
+- nix build .#homeConfigurations.ivank@workstation-dell-vostro-15-5510.activationPackage
+- ./result/activate
 - Change user password with `passwd`
 
 ## Debugging the flake

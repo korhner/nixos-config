@@ -1,19 +1,59 @@
-{ pkgs, config, lib, outputs, ... }: {
-  users.mutableUsers = false;
-  users.users.ivank = {
-    initialPassword = "qwe123";
-    isNormalUser = true;
-    extraGroups = [
-      "wheel"
-    ];
+{ pkgs, config, lib, inputs, outputs, ... }: {
+#  users.mutableUsers = false;
+#  users.users.ivank = {
+#    initialPassword = "qwe123";
+#    isNormalUser = true;
+#    extraGroups = [
+#      "wheel"
+#    ];
+#
+#    packages = [ pkgs.home-manager ];
+#  };
 
-    packages = [ pkgs.home-manager ];
+  imports = [
+    inputs.impermanence.nixosModules.home-manager.impermanence
+    features/cli
+  ];
+
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+#      allowUnfreePredicate = (_: true);
+    };
   };
 
-    imports = [
-      ./global
-      # TODO add others
-    ];
+  nix = {
+    package = lib.mkDefault pkgs.nix;
+    settings = {
+      experimental-features = [ "nix-command" "flakes" "repl-flake" ];
+      warn-dirty = false;
+    };
+  };
+
+  programs = {
+    home-manager.enable = true;
+    git.enable = true;
+  };
+
+  home = {
+    username = lib.mkDefault "ivank";
+    homeDirectory = lib.mkDefault "/home/${config.home.username}";
+    stateVersion = lib.mkDefault "22.05";
+    sessionPath = [ "$HOME/.local/bin" ];
+
+    persistence = {
+      "/persist/home/${config.home.username}" = {
+        directories = [
+#          "Documents"
+#          "Downloads"
+#          "Pictures"
+#          "Videos"
+#          ".local/bin"
+        ];
+        allowOther = true;
+      };
+    };
+  };
 
 #  home-manager.users.ivank = {
 #    #  ------   -----   ------
