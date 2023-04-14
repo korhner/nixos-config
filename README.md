@@ -31,9 +31,8 @@ nix build (or shell or run) To build and use packages
 - Run this in ISO
 ```shell
 sudo su
-nix-shell -p git
+nix-env -f '<nixpkgs>' -iA git
 git clone https://github.com/korhner/nixos-config.git
-CTRL + D to exit shell
 cd nixos-config/script
 bash format.sh (edit host inside script)
 cd ..
@@ -58,5 +57,5 @@ outputs
 ```
 
 ## Testing on VirtualBox
-- Create a linux 64bit VM, with at least 5 CPU and 6GB RAM (experiment with different values if you get black screen)
+- Create a linux 64bit VM (had problems with virtualbox, worked in vmware)
 - Mount minimal iso install
