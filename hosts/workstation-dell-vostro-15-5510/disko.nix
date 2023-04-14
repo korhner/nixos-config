@@ -34,7 +34,7 @@
                   mountOptions = [ "compress=zstd" "noatime" ];
                   extraArgs = [ "--label system" ];
                   subvolumes = {
-                    "/root" = {};
+                    "/root" = { mountpoint = "/"; };
                     "/nix" = {};
                     "/home" = {};
                     "/persist" = {};
