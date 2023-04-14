@@ -21,16 +21,13 @@
     };
   };
 
-  environment = {
+  environment."/persist" = {
     hideMounts = true;
-    persistence = {
-      "/persist".directories = [
-        "/var/lib/systemd"
-        "/var/log"
-        "/srv"
-      ];
-    };
-    enableAllTerminfo = true;
+    directories = [
+      "/var/lib/systemd"
+      "/var/log"
+      "/srv"
+    ];
   };
 
   programs.fuse.userAllowOther = true;
