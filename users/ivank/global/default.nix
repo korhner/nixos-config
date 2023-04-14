@@ -7,7 +7,7 @@ in
   imports = [
     inputs.impermanence.nixosModules.home-manager.impermanence
     ../features/cli
-  ] ++ (builtins.attrValues outputs.homeManagerModules);
+  ];
 
   nixpkgs = {
     overlays = builtins.attrValues outputs.overlays;
