@@ -2,8 +2,8 @@
 { lib, inputs, outputs, ... }:
 {
   imports = [
-    inputs.impermanence.nixosModules.impermanence
-    inputs.home-manager.nixosModules.home-manager
+#    inputs.impermanence.nixosModules.impermanence
+#    inputs.home-manager.nixosModules.home-manager
     ./docker.nix
     ./locale.nix
     ./nix.nix
@@ -21,16 +21,16 @@
     };
   };
 
-  environment = {
-    persistence = {
-      "/persist".directories = [
-        "/var/lib/systemd"
-        "/var/log"
-        "/srv"
-      ];
-    };
-    enableAllTerminfo = true;
-  };
+#  environment = {
+#    persistence = {
+#      "/persist".directories = [
+#        "/var/lib/systemd"
+#        "/var/log"
+#        "/srv"
+#      ];
+#    };
+#    enableAllTerminfo = true;
+#  };
 
   programs.fuse.userAllowOther = true;
   hardware.enableRedistributableFirmware = true;
