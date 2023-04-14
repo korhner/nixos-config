@@ -6,8 +6,6 @@
 #    ../common/optional/emphemeral-btrfs.nix
   ];
 
-  fileSystems."/persist".neededForBoot = true;
-
   boot = {
     initrd = {
       availableKernelModules = [ "ata_piix" "ohci_pci" "ehci_pci" "ahci" "sd_mod" "sr_mod" ];
