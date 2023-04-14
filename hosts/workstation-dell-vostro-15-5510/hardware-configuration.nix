@@ -2,7 +2,7 @@
   imports = [
     ./disko.nix
     inputs.disko.nixosModules.disko
-    ../common/optional/emphemeral-btrfs.nix
+#    ../common/optional/emphemeral-btrfs.nix
   ];
 
   boot = {
