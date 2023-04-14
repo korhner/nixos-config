@@ -34,7 +34,7 @@ CTRL + D to exit shell
 cd nixos-config/script
 ```
 - Run `bash format.sh` (edit host inside script)
-- Run `nixos-install --flake .#workstation-dell-vostro-15-5510` (change host)
+- Run `nixos-install --flake .#workstation-dell-vostro-15-5510 --no-root-passwd` (change host)
 - Reboot
 - Remove boot medium and reboot
 - git clone https://github.com/korhner/nixos-config.git

@@ -1,34 +1,19 @@
 { pkgs, config, lib, inputs, outputs, ... }: {
-#  users.mutableUsers = false;
-#  users.users.ivank = {
-#    initialPassword = "qwe123";
-#    isNormalUser = true;
-#    extraGroups = [
-#      "wheel"
-#    ];
-#
-#    packages = [ pkgs.home-manager ];
-#  };
+  users.mutableUsers = false;
+  users.users.ivank = {
+    initialPassword = "qwe123";
+    isNormalUser = true;
+    extraGroups = [
+      "wheel"
+    ];
+
+    packages = [ pkgs.home-manager ];
+  };
 
   imports = [
     inputs.impermanence.nixosModules.home-manager.impermanence
     features/cli
   ];
-
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-#      allowUnfreePredicate = (_: true);
-    };
-  };
-
-  nix = {
-    package = lib.mkDefault pkgs.nix;
-    settings = {
-      experimental-features = [ "nix-command" "flakes" "repl-flake" ];
-      warn-dirty = false;
-    };
-  };
 
   programs = {
     home-manager.enable = true;
@@ -38,7 +23,7 @@
   home = {
     username = lib.mkDefault "ivank";
     homeDirectory = lib.mkDefault "/home/${config.home.username}";
-    stateVersion = lib.mkDefault "22.05";
+    stateVersion = lib.mkDefault "22.11";
     sessionPath = [ "$HOME/.local/bin" ];
 
     persistence = {

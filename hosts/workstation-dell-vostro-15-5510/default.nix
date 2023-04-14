@@ -11,42 +11,14 @@
     ../common/global
 #    ../../users/ivank
   ];
-
-  networking = {
-    hostName = "workstation-dell-vostro-15-5510";
+  users.users = {
+    ivank = {
+      initialPassword = "qwe123";
+      isNormalUser = true;
+      extraGroups = [ "wheel" ];
+    };
   };
 
-  # TODO what is this
-#  boot = {
-#    kernelPackages = pkgs.linuxKernel.packages.linux_zen;
-#  };
-
-#  powerManagement.powertop.enable = true;
-#  programs = {
-#    light.enable = true;
-#    adb.enable = true;
-#    dconf.enable = true;
-#    kdeconnect.enable = true;
-#  };
-
-  # Lid settings
-#  services.logind = {
-#    lidSwitch = "suspend";
-#    lidSwitchExternalPower = "lock";
-#  };
-
-#  xdg.portal = {
-#    enable = true;
-#    wlr.enable = true;
-#  };
-#  hardware = {
-#    opengl = {
-#      enable = true;
-#      extraPackages = with pkgs; [ amdvlk ];
-#      driSupport = true;
-#      driSupport32Bit = true;
-#    };
-#  };
-
+  networking.hostName = "workstation-dell-vostro-15-5510";
   system.stateVersion = "22.11";
 }
