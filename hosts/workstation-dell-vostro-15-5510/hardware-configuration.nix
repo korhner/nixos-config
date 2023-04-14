@@ -8,6 +8,7 @@
 
   boot = {
     initrd = {
+      supportedFilesystems = [ "btrfs" ]; # TODO remove this
       availableKernelModules = [ "ata_piix" "ohci_pci" "ehci_pci" "ahci" "sd_mod" "sr_mod" ];
       kernelModules = [ ];
     };
