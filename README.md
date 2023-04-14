@@ -44,3 +44,7 @@ nix repl
 :lf .
 outputs
 ```
+
+## Testing on VirtualBox
+- Create a linux 64bit VM, with at least 4 CPU and 6GB RAM
+- Mount minimal iso install
