@@ -21,13 +21,14 @@
     };
   };
 
-  environment."/persist" = {
+  environment.persistence."/persist" = {
     hideMounts = true;
     directories = [
       "/var/lib/systemd"
       "/var/log"
       "/srv"
     ];
+    files = [];
   };
 
   programs.fuse.userAllowOther = true;
