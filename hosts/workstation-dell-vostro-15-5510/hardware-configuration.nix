@@ -1,6 +1,7 @@
-{
+{ disko, ... }: {
   imports = [
-    ../common/optional/btrfs-optin-persistence.nix
+    ./disko.nix
+    disko.nixosModules.disko
     ../common/optional/emphemeral-btrfs.nix
   ];
 

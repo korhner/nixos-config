@@ -5,13 +5,11 @@
 #    inputs.hardware.nixosModules.common-cpu-intel
 #    inputs.hardware.nixosModules.common-gpu-intel
 #    inputs.hardware.nixosModules.common-pc-ssd
-#     ./disks.nix
+
     ./hardware-configuration.nix
 
     ../common/global
 #    ../../users/ivank
-    ./disko.nix
-    disko.nixosModules.disko
   ];
 
   networking = {

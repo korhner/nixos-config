@@ -35,4 +35,4 @@ echo "experimental-features = nix-command flakes" > ~/.config/nix/nix.conf
 ```
 - Run disko to format disk (change host) `nix run github:nix-community/disko -- -m zap_create_mount ./hosts/workstation-dell-vostro-15-5510/disko.nix`
 - Run `nixos-generate-config --root /mnt` and update hardware-configuration.nix if needed.
-- Run `nixos-install --flake .#nixosConfigurations.workstation` (ovo ne radi jos)
+- Run `nixos-install --flake .#workstation-dell-vostro-15-5510` (change host)
