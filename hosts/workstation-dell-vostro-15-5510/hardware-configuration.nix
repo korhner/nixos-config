@@ -13,7 +13,6 @@
     };
     loader = {
       systemd-boot.enable = true;
-      systemd-boot.generateConfig = true;
 
       efi.canTouchEfiVariables = true;
     };
