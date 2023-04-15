@@ -56,6 +56,7 @@ nix repl
 outputs
 ```
 
-## Testing on VirtualBox
+## Testing on VM
 - Create a linux 64bit VM (had problems with virtualbox, worked in vmware)
 - Mount minimal iso install
+- Find vmx file and make sure `firmware = "efi"` exists

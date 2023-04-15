@@ -29,7 +29,7 @@ disko.devices = {
             end = "-4G";
             content = {
               type = "luks";
-              name = "system";
+              name = "cryptsystem";
               content = {
                 type = "btrfs";
                 mountOptions = [ "compress=zstd" "noatime" ];
