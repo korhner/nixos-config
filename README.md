@@ -62,8 +62,10 @@ outputs
 - Find vmx file and make sure `firmware = "efi"` exists
 
 ## Boot to repair system
+```shell
 sudo su
 nix-env -f '<nixpkgs>' -iA git
 git clone https://github.com/korhner/nixos-config.git
 cd nixos-config/script
 bash mount.sh (edit host inside script)
+```

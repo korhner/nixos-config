@@ -24,16 +24,15 @@ disko.devices = {
           }
           {
             type = "partition";
-            name = "cryptsystem";
+            name = "luks";
             start = "550MiB";
             end = "-4G";
             content = {
               type = "luks";
-              name = "cryptsystem";
+              name = "crypted-root";
               content = {
                 type = "btrfs";
                 mountOptions = [ "compress=zstd" "noatime" ];
-                extraArgs = [ "--label system" ];
                 subvolumes = {
                   "/root" = { mountpoint = "/"; };
                   "/nix" = {};
