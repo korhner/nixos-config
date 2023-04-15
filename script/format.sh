@@ -8,4 +8,4 @@ echo "experimental-features = nix-command flakes" > ~/.config/nix/nix.conf
 nix run github:nix-community/disko -- -m zap_create_mount ../hosts/$HOST/disko.nix
 
 # Generate config so it can be inspected
-nixos-generate-config --root /home/root
+nixos-generate-config --root /tmp
