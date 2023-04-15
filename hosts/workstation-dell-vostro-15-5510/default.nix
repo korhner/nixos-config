@@ -15,6 +15,10 @@
       initialPassword = "qwe123";
       isNormalUser = true;
       extraGroups = [ "wheel" ];
+      packages = [
+        pkgs.home-manager
+        pkgs.git
+      ];
     };
   };
 

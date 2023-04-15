@@ -9,15 +9,13 @@
     ./nix.nix
   ];
 
-  programs = {
-#    home-manager.enable = true;
-    git.enable = true;
-  };
-
-  home-manager = {
-    useUserPackages = true;
-    extraSpecialArgs = { inherit inputs outputs; };
-  };
+   environment.systemPackages = with pkgs; [
+      #(uutils-coreutils.override { prefix = ""; })
+      lm_sensors
+      pulseaudio # used for tools
+      alsa-utils
+      python3
+   ];
 
   nixpkgs = {
     config = {

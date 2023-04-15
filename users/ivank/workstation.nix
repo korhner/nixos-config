@@ -1,19 +1,17 @@
 { pkgs, config, lib, inputs, outputs, ... }: {
-  users.mutableUsers = false;
-  users.users.ivank = {
-    initialPassword = "qwe123";
-    isNormalUser = true;
-    extraGroups = [
-      "wheel"
-    ];
-
-    packages = [ pkgs.home-manager ];
-  };
 
   imports = [
     inputs.impermanence.nixosModules.home-manager.impermanence
     features/cli
   ];
+
+  programs = {
+    home-manager.enable = true;
+    git.enable = true;
+  };
+
+  # Nicely reload system units when changing configs
+  systemd.user.startServices = "sd-switch";
 
   home = {
     username = lib.mkDefault "ivank";
