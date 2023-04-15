@@ -10,7 +10,6 @@ disko.devices = {
         format = "gpt";
         partitions = [
           {
-            type = "partition";
             name = "ESP";
             start = "1MiB";
             end = "550MiB";
@@ -23,7 +22,6 @@ disko.devices = {
             };
           }
           {
-            type = "partition";
             name = "luks";
             start = "550MiB";
             end = "-4G";
@@ -44,7 +42,6 @@ disko.devices = {
           }
           {
             name = "swap";
-            type = "partition";
             start = "-4G";
             end = "100%";
             part-type = "primary";
