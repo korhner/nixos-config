@@ -8,7 +8,7 @@
   boot = {
     kernelParams = [ "boot.shell_on_fail" ];
     initrd = {
-      availableKernelModules = [ "ata_piix" "ahci" "sr_mod" "mptspi" "virtio_blk" ];
+      availableKernelModules = [ "ata_piix" "ahci" "sr_mod" "mptspi" ];
       kernelModules = [ ];
     };
     loader = {
