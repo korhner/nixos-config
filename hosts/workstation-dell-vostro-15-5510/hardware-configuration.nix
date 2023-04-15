@@ -13,13 +13,8 @@
     };
     loader = {
       systemd-boot.enable = true;
-#      grub = {
-#        enable = true;
-#        version = 2;
-#        efiSupport = true;
-#        enableCryptodisk = true;
-#        device = "nodev";
-#       };
+      systemd-boot.generateConfig = true;
+
       efi.canTouchEfiVariables = true;
     };
   };

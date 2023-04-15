@@ -35,7 +35,6 @@ nix-env -f '<nixpkgs>' -iA git
 git clone https://github.com/korhner/nixos-config.git
 cd nixos-config/script
 bash format.sh (edit host inside script)
-cd ..
 nixos-install --flake .#workstation-dell-vostro-15-5510 --no-root-passwd (change host)
 ```
 
@@ -43,13 +42,17 @@ Remove boot medium, reboot, run this in system
 ```shell
 passwd (change user password)
 nix-shell -p home-manager git
+mkdir repositories
+cd repositories
 git clone https://github.com/korhner/nixos-config.git
 cd nixos-config
 sudo nixos-rebuild switch --flake .
 home-manager switch --flake .
+CTRL + D to exit shell
+reboot
 ```
 
-## Maintaining system
+## Maintaining the system
 ```
 sudo nixos-rebuild switch --flake .
 home-manager switch --flake .
