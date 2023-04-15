@@ -12,9 +12,9 @@
       kernelModules = [ ];
     };
     loader = {
-      systemd-boot = {
-        enable = true;
-        consoleMode = "max";
+      grub = {
+        efiSupport = true;
+        device = "nodev";
       };
       efi.canTouchEfiVariables = true;
     };
