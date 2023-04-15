@@ -9,6 +9,11 @@
     ./nix.nix
   ];
 
+  programs = {
+    home-manager.enable = true;
+    git.enable = true;
+  };
+
   home-manager = {
     useUserPackages = true;
     extraSpecialArgs = { inherit inputs outputs; };

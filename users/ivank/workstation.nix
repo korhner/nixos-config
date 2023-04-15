@@ -15,11 +15,6 @@
     features/cli
   ];
 
-  programs = {
-    home-manager.enable = true;
-    git.enable = true;
-  };
-
   home = {
     username = lib.mkDefault "ivank";
     homeDirectory = lib.mkDefault "/home/${config.home.username}";
