@@ -9,13 +9,7 @@
     ./nix.nix
   ];
 
-   environment.systemPackages = with pkgs; [
-      #(uutils-coreutils.override { prefix = ""; })
-      lm_sensors
-      pulseaudio # used for tools
-      alsa-utils
-      python3
-   ];
+
 
   nixpkgs = {
     config = {

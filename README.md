@@ -42,10 +42,11 @@ nixos-install --flake .#workstation-dell-vostro-15-5510 --no-root-passwd (change
 Remove boot medium, reboot, run this in system
 ```shell
 passwd (change user password)
+nix-shell -p home-manager git
 git clone https://github.com/korhner/nixos-config.git
 cd nixos-config
 sudo nixos-rebuild switch --flake .#
-nix build .#homeConfigurations.ivank@workstation-dell-vostro-15-5510.activationPackage
+home-manager switch --flake .
 ./result/activate
 ```
 
