@@ -45,9 +45,14 @@ passwd (change user password)
 nix-shell -p home-manager git
 git clone https://github.com/korhner/nixos-config.git
 cd nixos-config
-sudo nixos-rebuild switch --flake .#
+sudo nixos-rebuild switch --flake .
 home-manager switch --flake .
-./result/activate
+```
+
+## Maintaining system
+```
+sudo nixos-rebuild switch --flake .
+home-manager switch --flake .
 ```
 
 ## Debugging the flake
