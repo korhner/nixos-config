@@ -7,10 +7,10 @@
 
   boot = {
     kernelParams = [ "boot.shell_on_fail" ];
-#    initrd = {
-#      availableKernelModules = [ "ata_piix" "ohci_pci" "ehci_pci" "ahci" "sd_mod" "sr_mod" ];
-#      kernelModules = [ ];
-#    };
+    initrd = {
+      availableKernelModules = [ "ata_piix" "ahci" "sr_mod" "virtio_blk" ];
+      kernelModules = [ ];
+    };
     loader = {
 #      systemd-boot.enable = true;
       grub = {
