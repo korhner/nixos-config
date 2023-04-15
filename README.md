@@ -60,3 +60,10 @@ outputs
 - Create a linux 64bit VM (had problems with virtualbox, worked in vmware)
 - Mount minimal iso install
 - Find vmx file and make sure `firmware = "efi"` exists
+
+## Boot to repair system
+sudo su
+nix-env -f '<nixpkgs>' -iA git
+git clone https://github.com/korhner/nixos-config.git
+cd nixos-config/script
+bash mount.sh (edit host inside script)
