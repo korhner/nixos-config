@@ -2,12 +2,11 @@
   imports = [
     ./disko.nix
     inputs.disko.nixosModules.disko
-#    ../common/optional/emphemeral-btrfs.nix
   ];
 
   environment.systemPackages = [
-    (pkgs.writeScriptBin  "disko-create" (config.system.build.formatScript))
-    (pkgs.writeScriptBin  "disko-mount" (config.system.build.mountScript))
+    (pkgs.writeScript  "disko-create" (config.system.build.formatScript))
+    (pkgs.writeScript  "disko-mount" (config.system.build.mountScript))
   ];
 
   boot = {

@@ -35,9 +35,20 @@ reboot
 ```
 
 ## Maintaining the system
+
+### Updating
 ```
 sudo nixos-rebuild switch --flake .
 home-manager switch --flake .
+```
+
+### Impermanence
+```shell
+sudo btrfs subvolume snapshot -r / /tmp/root-current
+sudo btrfs subvolume list -t /
+sudo btrfs send -p /root-blank /tmp/root-current --no-data | btrfs receive --dump
+sudo btrfs subvolume snapshot delete /tmp/root-current
+
 ```
 
 ## Debugging the flake

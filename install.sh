@@ -29,4 +29,4 @@ nixos-rebuild build --flake .#"${HOST}"
 btrfs subvolume snapshot -r /mnt      /mnt/root-blank
 btrfs subvolume snapshot -r /mnt/home /mnt/home-blank
 
-#nixos-install --flake .#"${HOST}" --no-root-passwd
+nixos-install --flake .#"${HOST}" --no-root-passwd

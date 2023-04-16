@@ -17,8 +17,8 @@
 
   environment.persistence."/persist" = {
     directories = [
-#      "/var/lib/systemd"
-#      "/var/log"
+      "/var/lib/systemd"
+      "/var/log"
     ];
     files = [];
   };
