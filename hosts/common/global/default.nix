@@ -9,8 +9,6 @@
     ./nix.nix
   ];
 
-
-
   nixpkgs = {
     config = {
       allowUnfree = true;

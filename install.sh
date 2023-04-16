@@ -22,6 +22,7 @@ echo "experimental-features = nix-command flakes" > ~/.config/nix/nix.conf
 
 nixos-rebuild build --flake .#"${HOST}"
 
+# TODO check if those are in path in new system
 ./result/sw/bin/disko-create
 ./result/sw/bin/disko-mount
 
