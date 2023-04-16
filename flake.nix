@@ -27,14 +27,14 @@
     in
     {
       nixosConfigurations = {
-        "workstation-dell-vostro-15-5510" = nixpkgs.lib.nixosSystem {
+        "work-dell" = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
-          modules = [ ./hosts/workstation-dell-vostro-15-5510 ];
+          modules = [ ./hosts/work-dell ];
         };
       };
 
       homeConfigurations = {
-        "ivank@workstation-dell-vostro-15-5510" = home-manager.lib.homeManagerConfiguration {
+        "ivank@work-dell" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages."x86_64-linux";
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [ ./users/ivank/workstation.nix ];

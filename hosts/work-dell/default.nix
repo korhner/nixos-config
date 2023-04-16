@@ -28,6 +28,6 @@
     };
   };
 
-  networking.hostName = "workstation-dell-vostro-15-5510";
+  networking.hostName = "work-dell";
   system.stateVersion = "22.11";
 }

@@ -8,7 +8,7 @@ then
   exit 1
 fi
 
-# for example, workstation-dell-vostro-15-5510
+# for example, work-dell
 HOST="$1"
 
 mkdir -p ~/.config/nix

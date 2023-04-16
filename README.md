@@ -11,7 +11,6 @@
 
 ## Installing nixos
 - Download nixos iso minimal image and boot to it (TODO more instructions)
-
 - Run this in ISO
 ```shell
 sudo su
