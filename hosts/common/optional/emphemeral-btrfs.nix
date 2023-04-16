@@ -43,13 +43,18 @@ in {
     (
       mount -t btrfs -o subvol=/ /dev/mapper/crypted "$MNTPOINT"
       trap 'umount "$MNTPOINT"' EXIT
-      echo "Cleaning root subvolume"
+
       btrfs subvolume list -o "$MNTPOINT/root" | cut -f9 -d ' ' |
       while read -r subvolume; do
         btrfs subvolume delete "$MNTPOINT/$subvolume"
       done && btrfs subvolume delete "$MNTPOINT/root"
-      echo "Restoring blank subvolume"
       btrfs subvolume snapshot "$MNTPOINT/root-blank" "$MNTPOINT/root"
+
+      btrfs subvolume list -o "$MNTPOINT/home" | cut -f9 -d ' ' |
+      while read -r subvolume; do
+        btrfs subvolume delete "$MNTPOINT/$subvolume"
+      done && btrfs subvolume delete "$MNTPOINT/home"
+      btrfs subvolume snapshot "$MNTPOINT/home-blank" "$MNTPOINT/home"
     )
   '';
 }
