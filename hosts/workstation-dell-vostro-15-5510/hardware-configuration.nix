@@ -4,10 +4,7 @@
     inputs.disko.nixosModules.disko
   ];
 
-  environment.systemPackages = [
-    (pkgs.writeScript  "disko-create" (config.system.build.formatScript))
-    (pkgs.writeScript  "disko-mount" (config.system.build.mountScript))
-  ];
+
 
   boot = {
     kernelParams = [ "boot.shell_on_fail" ];

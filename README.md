@@ -17,7 +17,7 @@
 sudo su
 nix-env -f '<nixpkgs>' -iA git
 git clone https://github.com/korhner/nixos-config.git
-bash install.sh <HOST>
+bash setup-system-iso.sh <HOST>
 ```
 
 Remove boot medium, reboot, run this in system
@@ -37,19 +37,14 @@ reboot
 ## Maintaining the system
 
 ### Updating
+TODO flake update
 ```
 sudo nixos-rebuild switch --flake .
 home-manager switch --flake .
 ```
 
 ### Impermanence
-```shell
-sudo btrfs subvolume snapshot -r / /tmp/root-current
-sudo btrfs subvolume list -t /
-sudo btrfs send -p /root-blank /tmp/root-current --no-data | btrfs receive --dump
-sudo btrfs subvolume snapshot delete /tmp/root-current
-
-```
+`impermanence-diff`
 
 ## Debugging the flake
 ```shell
@@ -62,12 +57,3 @@ outputs
 - Create a linux 64bit VM (had problems with virtualbox, worked in vmware)
 - Mount minimal iso install
 - Find vmx file and make sure `firmware = "efi"` exists
-
-## Boot to repair system
-```shell
-sudo su
-nix-env -f '<nixpkgs>' -iA git
-git clone https://github.com/korhner/nixos-config.git
-cd nixos-config/script
-bash mount.sh (edit host inside script)
-```

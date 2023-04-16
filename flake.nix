@@ -1,11 +1,6 @@
 {
   description = "My NixOS configuration";
 
-#  nixConfig = {
-#    extra-substituters = [ "https://cache.m7.rs" ];
-#    extra-trusted-public-keys = [ "cache.m7.rs:kszZ/NSwE/TjhOcPPQ16IuUiuRSisdiIwhKZCxguaWg=" ];
-#  };
-
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
