@@ -26,6 +26,6 @@ nixos-rebuild build --flake .#"${HOST}"
 ./result/sw/bin/disko-create
 ./result/sw/bin/disko-mount
 
-btrfs subvolume snapshot -r /mnt/root /mnt/root-blank
+#btrfs subvolume snapshot -r /mnt/root /mnt/root-blank
 
 #nixos-install --flake .#"${HOST}" --no-root-passwd

@@ -34,9 +34,12 @@ disko.devices = {
                 subvolumes = {
                   "/root" = {
                     mountpoint = "/";
+                    postCreateHook = "btrfs subvolume snapshot -r /mnt /mnt/root-blank";
                   };
                   "/nix" = {};
-                  "/home" = {};
+                  "/home" = {
+                    postCreateHook = "btrfs subvolume snapshot -r /mnt/home /mnt/home-blank";
+                  };
                   "/persist" = {};
                 };
               };
