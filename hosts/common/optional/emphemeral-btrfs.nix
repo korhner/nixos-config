@@ -15,8 +15,8 @@ let
     ${config.system.build.formatScript}
     ${config.system.build.mountScript}
 
-    btrfs subvolume snapshot -r /mnt      /mnt/root-blank
-    btrfs subvolume snapshot -r /mnt/home /mnt/home-blank
+    #btrfs subvolume snapshot -r /mnt      /mnt/root-blank
+    #btrfs subvolume snapshot -r /mnt/home /mnt/home-blank
 
     nixos-install --flake .#"${hostname}" --no-root-passwd
   '';

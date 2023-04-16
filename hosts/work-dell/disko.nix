@@ -39,6 +39,12 @@ disko.devices = {
                   "/home" = {};
                   "/persist" = {};
                 };
+                postCreateHook = ''
+                  mount -t btrfs /dev/mapper/crypted /mnt
+                  btrfs subvolume snapshot -r /mnt/root /mnt/root-blank
+                  btrfs subvolume snapshot -r /mnt/home /mnt/home-blank
+                  umount /mnt
+                '';
               };
             };
           }
