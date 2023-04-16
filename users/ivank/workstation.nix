@@ -22,6 +22,7 @@
     persistence = {
       "/persist/home/${config.home.username}" = {
         directories = [
+           "repositories"
 #          "Documents"
 #          "Downloads"
 #          "Pictures"
