@@ -1,7 +1,7 @@
 # https://grahamc.com/blog/erase-your-darlings/
 # https://mt-caret.github.io/blog/posts/2020-06-29-optin-state.html
 
-{ lib, config, ... }: {
+{ pkgs, lib, config, ... }: {
   boot.initrd.postDeviceCommands = pkgs.lib.mkBefore ''
     mkdir /tmp -p
     MNTPOINT=$(mktemp -d)
