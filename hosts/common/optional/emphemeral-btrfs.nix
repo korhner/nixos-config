@@ -28,16 +28,11 @@ let
     btrfs subvolume snapshot delete /tmp/home-current
   '';
 
-
-
 in {
 
   imports = [
     inputs.impermanence.nixosModules.impermanence
     inputs.home-manager.nixosModules.home-manager
-    ./docker.nix
-    ./locale.nix
-    ./nix.nix
   ];
 
   fileSystems."/persist".neededForBoot = true;

@@ -4,8 +4,6 @@
     inputs.disko.nixosModules.disko
   ];
 
-
-
   boot = {
     kernelParams = [ "boot.shell_on_fail" ];
     initrd = {
