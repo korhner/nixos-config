@@ -6,8 +6,8 @@
   ];
 
   environment.systemPackages = [
-    (pkgs.writeScript "disko-create" (config.system.build.formatScript))
-    (pkgs.writeScript "disko-mount" (config.system.build.mountScript))
+    (pkgs.writeScriptBin  "disko-create" (config.system.build.formatScript))
+    (pkgs.writeScriptBin  "disko-mount" (config.system.build.mountScript))
   ];
 
   boot = {
