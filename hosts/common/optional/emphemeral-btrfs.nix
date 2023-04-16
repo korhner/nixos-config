@@ -35,9 +35,7 @@ in {
     inputs.home-manager.nixosModules.home-manager
   ];
 
-  systemd.tmpfiles.rules = [
-      "d /persist/home/ivank 0700 ivank -"
-  ];
+  fileSystems."/persist".neededForBoot = true;
 
   environment.persistence."/persist" = {
     directories = [

@@ -29,11 +29,9 @@
     };
   };
 
-  file."persist-home-ivank"."/persist/home/ivank" = {
-    owner = "ivank";
-    group = "ivank";
-    mode = "0700";
-  };
+  systemd.tmpfiles.rules = [
+      "d /persist/home/ivank 0700 ivank -"
+  ];
 
   networking.hostName = "work-dell";
   system.stateVersion = "22.11";
