@@ -1,18 +1,3 @@
-## Various
-
-curl -L -O https://github.com/korhner/nixos-config/archive/refs/heads/main.zip
-unzip main.zip
-
-nix run .#nixosConfigurations.workstation.config.partitions-create --extra-experimental-features nix-command --extra-experimental-features flakes
-nix run .#nixosConfigurations.workstation.config.partitions-mount --extra-experimental-features nix-command --extra-experimental-features flakes
-
-nixos-install --flake . #nixosConfigurations
-
-nixos-rebuild --flake . To build system configurations
-home-manager --flake . To build user configurations
-nix build (or shell or run) To build and use packages
-
-
 ## Adding new machine
 
 - Create new folder under in `hosts` dir
@@ -25,7 +10,6 @@ nix build (or shell or run) To build and use packages
   - Change user, hostname, ...
 
 ## Installing nixos
-
 - Download nixos iso minimal image and boot to it (TODO more instructions)
 
 - Run this in ISO
@@ -33,9 +17,7 @@ nix build (or shell or run) To build and use packages
 sudo su
 nix-env -f '<nixpkgs>' -iA git
 git clone https://github.com/korhner/nixos-config.git
-cd nixos-config/script
-bash format.sh (edit host inside script)
-nixos-install --flake .#workstation-dell-vostro-15-5510 --no-root-passwd (change host)
+bash install.sh <HOST>
 ```
 
 Remove boot medium, reboot, run this in system
