@@ -23,9 +23,10 @@ echo "experimental-features = nix-command flakes" > ~/.config/nix/nix.conf
 nixos-rebuild build --flake .#"${HOST}"
 
 # TODO check if those are in path in new system
-#./result/sw/bin/disko-create
-#./result/sw/bin/disko-mount
+./result/sw/bin/disko-create
+./result/sw/bin/disko-mount
 
-#btrfs subvolume snapshot -r /mnt/root /mnt/root-blank
+btrfs subvolume snapshot -r /mnt      /mnt/root-blank
+btrfs subvolume snapshot -r /mnt/home /mnt/home-blank
 
 #nixos-install --flake .#"${HOST}" --no-root-passwd
