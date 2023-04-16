@@ -22,7 +22,7 @@ echo "experimental-features = nix-command flakes" > ~/.config/nix/nix.conf
 
 nixos-rebuild build --flake .#"${HOST}"
 
-#bash ~/result/sw/bin/disko-create
-#bash ~/result/sw/bin/disko-mount
+./result/sw/bin/disko-create
+./result/sw/bin/disko-mount
 
 #nixos-install --flake .#"${HOST}" --no-root-passwd

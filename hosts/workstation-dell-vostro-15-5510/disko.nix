@@ -32,12 +32,14 @@ disko.devices = {
                 type = "btrfs";
                 mountOptions = [ "compress=zstd" "noatime" ];
                 subvolumes = {
-                  "/root" = { mountpoint = "/"; };
+                  "/root" = {
+                    mountpoint = "/";
+                    postCreateHook = "btrfs subvolume snapshot -r /mnt/root /mnt/root-blank";
+                  };
                   "/nix" = {};
                   "/home" = {};
                   "/persist" = {};
                 };
-                postCreateHook = "btrfs subvolume snapshot -r /mnt/root /mnt/root-blank; btrfs subvolume snapshot -r /mnt/home /mnt/home-blank";
               };
             };
           }
