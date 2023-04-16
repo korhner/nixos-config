@@ -63,6 +63,4 @@ disko.devices = {
     };
   };
   };
-
-  fileSystems."/persist".neededForBoot = true;
 }

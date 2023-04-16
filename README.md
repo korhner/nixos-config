@@ -20,16 +20,24 @@ bash setup-system-iso.sh <HOST>
 ```
 
 Remove boot medium, reboot, run this in system
+In root shell
 ```shell
-passwd (change user password)
+sudo su
+nix-shell -p git
+nixos-rebuild switch --flake github:korhner/nixos-config --no-write-lock-file
+```
+
+In user shell (exit both nix-shell and sudo shell)
+```shell
+export HOME=/home/ivank
+cd ~
 nix-shell -p home-manager git
 mkdir repositories
 cd repositories
 git clone https://github.com/korhner/nixos-config.git
 cd nixos-config
-sudo nixos-rebuild switch --flake .
 home-manager switch --flake .
-CTRL + D to exit shell
+passwd (change user password)
 reboot
 ```
 

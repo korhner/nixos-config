@@ -16,6 +16,7 @@
     ../common/global
     ../common/optional/emphemeral-btrfs.nix
   ];
+
   users.users = {
     ivank = {
       initialPassword = "qwe123";
@@ -26,6 +27,12 @@
         pkgs.git
       ];
     };
+  };
+
+  file."persist-home-ivank"."/persist/home/ivank" = {
+    owner = "ivank";
+    group = "ivank";
+    mode = "0700";
   };
 
   networking.hostName = "work-dell";

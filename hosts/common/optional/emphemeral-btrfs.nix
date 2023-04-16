@@ -15,9 +15,6 @@ let
     ${config.system.build.formatScript}
     ${config.system.build.mountScript}
 
-    #btrfs subvolume snapshot -r /mnt      /mnt/root-blank
-    #btrfs subvolume snapshot -r /mnt/home /mnt/home-blank
-
     nixos-install --flake .#"${hostname}" --no-root-passwd
   '';
 
@@ -34,6 +31,26 @@ let
 
 
 in {
+
+  imports = [
+    inputs.impermanence.nixosModules.impermanence
+    inputs.home-manager.nixosModules.home-manager
+    ./docker.nix
+    ./locale.nix
+    ./nix.nix
+  ];
+
+  fileSystems."/persist".neededForBoot = true;
+
+  environment.persistence."/persist" = {
+    directories = [
+      "/var/lib/systemd"
+      "/var/log"
+    ];
+    files = [
+      "/etc/machine-id"
+    ];
+  };
 
   environment.systemPackages = [ setupSystemIso impermanenceDiff ];
 

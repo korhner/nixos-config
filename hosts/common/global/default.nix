@@ -2,8 +2,6 @@
 { lib, inputs, outputs, ... }:
 {
   imports = [
-    inputs.impermanence.nixosModules.impermanence
-    inputs.home-manager.nixosModules.home-manager
     ./docker.nix
     ./locale.nix
     ./nix.nix
@@ -15,13 +13,6 @@
     };
   };
 
-  environment.persistence."/persist" = {
-    directories = [
-      "/var/lib/systemd"
-      "/var/log"
-    ];
-    files = [];
-  };
 
   hardware.enableRedistributableFirmware = true;
 }
