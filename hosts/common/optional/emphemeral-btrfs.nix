@@ -1,5 +1,5 @@
 # This file contains an ephemeral btrfs root configuration
-# TODO: perhaps partition using disko in the future
+
 { lib, config, ... }:
 let
   hostname = config.networking.hostName;

@@ -37,6 +37,7 @@ disko.devices = {
                   "/home" = {};
                   "/persist" = {};
                 };
+                postCreateHook = "btrfs subvolume snapshot -r /mnt/root /mnt/root-blank; btrfs subvolume snapshot -r /mnt/home /mnt/home-blank";
               };
             };
           }
