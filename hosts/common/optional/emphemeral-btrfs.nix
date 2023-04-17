@@ -19,13 +19,20 @@ let
   '';
 
   impermanenceDiff = pkgs.writeShellScriptBin "impermanence-diff" ''
-    btrfs subvolume snapshot -r / /tmp/root-current
-    btrfs send -p /root-blank /tmp/root-current --no-data | btrfs receive --dump
-    btrfs subvolume snapshot delete /tmp/root-current
+    mkdir /tmp -p
+    MNTPOINT=$(mktemp -d)
+    (
+      mount -t btrfs -o subvol=/ /dev/mapper/crypted "$MNTPOINT"
+      trap 'umount "$MNTPOINT"' EXIT
 
-    btrfs subvolume snapshot -r /home /tmp/root-home
-    btrfs send -p /home-blank /tmp/home-current --no-data | btrfs receive --dump
-    btrfs subvolume snapshot delete /tmp/home-current
+      btrfs subvolume snapshot -r /$MNTPOINT/root /$MNTPOINT/root-current
+      btrfs send -p /$MNTPOINT/root-blank /$MNTPOINT/root-current --no-data | btrfs receive --dump
+      btrfs subvolume snapshot delete /$MNTPOINT/root-current
+
+      btrfs subvolume snapshot -r /$MNTPOINT/home /$MNTPOINT/home-current
+      btrfs send -p /$MNTPOINT/home-blank /$MNTPOINT/home-current --no-data | btrfs receive --dump
+      btrfs subvolume snapshot delete /$MNTPOINT/home-current
+    )
   '';
 
 in {

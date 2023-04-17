@@ -15,33 +15,31 @@
 ```shell
 sudo su
 nix-env -f '<nixpkgs>' -iA git
+mkdir -p /persist/home/ivank/repositories
+cd /persist/home/ivank/repositories
 git clone https://github.com/korhner/nixos-config.git
 bash setup-system-iso.sh <HOST>
 ```
 
-Remove boot medium, reboot, run this in system
-In root shell
-```shell
-sudo su
-nix-shell -p git
-nixos-rebuild switch --flake github:korhner/nixos-config --no-write-lock-file
-```
-
-In user shell (exit both nix-shell and sudo shell)
+Setup home manager
 ```shell
 nix-shell -p home-manager git
-cd /persist/home/ivank
-mkdir repositories
-cd repositories
-git clone https://github.com/korhner/nixos-config.git
-cd nixos-config
+cd /persist/home/ivank/repositories
 home-manager switch --flake .
 reboot
+```
+
+Test everything works
+```shell
+cd ~/repositories/nixos-config
+sudo nixos-rebuild switch --flake .
+home-manager switch --flake .
 ```
 
 ```shell
 passwd (change user password)
 ```
+
 ## Maintaining the system
 
 ### Updating
