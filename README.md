@@ -29,18 +29,19 @@ nixos-rebuild switch --flake github:korhner/nixos-config --no-write-lock-file
 
 In user shell (exit both nix-shell and sudo shell)
 ```shell
-export HOME=/home/ivank
-cd ~
 nix-shell -p home-manager git
+cd /persist/home/ivank
 mkdir repositories
 cd repositories
 git clone https://github.com/korhner/nixos-config.git
 cd nixos-config
 home-manager switch --flake .
-passwd (change user password)
 reboot
 ```
 
+```shell
+passwd (change user password)
+```
 ## Maintaining the system
 
 ### Updating

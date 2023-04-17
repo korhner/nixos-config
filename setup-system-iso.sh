@@ -15,5 +15,6 @@ mkdir -p ~/.config/nix
 echo "experimental-features = nix-command flakes" > ~/.config/nix/nix.conf
 
 nixos-rebuild build --flake .#"${HOST}"
-
 ./result/sw/bin/setup-system-iso
+
+reboot
