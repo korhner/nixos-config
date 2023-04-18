@@ -13,10 +13,18 @@
 - Download nixos iso minimal image and boot to it (TODO more instructions)
 - Run this in ISO
 ```shell
+sudo systemctl start wpa_supplicant
+wpa_cli
+add_network
+set_network 0 ssid <wifi_network>
+set_network 0 psk <wifi_password>
+set_network 0 key_mgmt WPA-PSK
+enable_network 0
+
 sudo su
 nix-env -f '<nixpkgs>' -iA git
 git clone https://github.com/korhner/nixos-config.git
-bash setup-system-iso.sh <HOST> <USER>
+bash setup-system-iso.sh <HOST>
 ```
 
 Setup home manager
