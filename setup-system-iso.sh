@@ -1,20 +1,27 @@
 #!/usr/bin/env bash
 set -e
 
-# Check if HOST parameter is present
 if [ -z "$1" ]
 then
-  echo "Host parameter not passed"
+  echo "Host not passed (work-dell, ...)"
   exit 1
 fi
 
-# for example, work-dell
+if [ -z "$2" ]
+then
+  echo "User not passed (ivank, ...)"
+  exit 1
+fi
+
 HOST="$1"
+USER="$2"
 
 mkdir -p ~/.config/nix
 echo "experimental-features = nix-command flakes" > ~/.config/nix/nix.conf
 
 nixos-rebuild build --flake .#"${HOST}"
 ./result/sw/bin/setup-system-iso
+
+mv ../nixos-config /persist/home/$USER/repositories
 
 reboot

@@ -15,16 +15,14 @@
 ```shell
 sudo su
 nix-env -f '<nixpkgs>' -iA git
-mkdir -p /persist/home/ivank/repositories
-cd /persist/home/ivank/repositories
 git clone https://github.com/korhner/nixos-config.git
-bash setup-system-iso.sh <HOST>
+bash setup-system-iso.sh <HOST> <USER>
 ```
 
 Setup home manager
 ```shell
 nix-shell -p home-manager git
-cd /persist/home/ivank/repositories
+cd /persist/home/<USER>/repositories
 home-manager switch --flake .
 reboot
 ```
