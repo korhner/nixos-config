@@ -8,12 +8,13 @@
   programs = {
     home-manager.enable = true;
     git.enable = true;
+
+    fuse.userAllowOther = true;
   };
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
-  programs.fuse.userAllowOther = true;
 
   home = {
     username = lib.mkDefault "ivank";
