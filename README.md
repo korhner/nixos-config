@@ -22,7 +22,9 @@ bash setup-system-iso.sh <HOST> <USER>
 Setup home manager
 ```shell
 nix-shell -p home-manager git
+mkdir /persist/home/<USER>/repositories
 cd /persist/home/<USER>/repositories
+git clone https://github.com/korhner/nixos-config.git
 home-manager switch --flake .
 reboot
 ```

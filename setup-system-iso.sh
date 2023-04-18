@@ -22,7 +22,4 @@ echo "experimental-features = nix-command flakes" > ~/.config/nix/nix.conf
 nixos-rebuild build --flake .#"${HOST}"
 ./result/sw/bin/setup-system-iso
 
-mkdir /mnt/persist/home/$USER/repositories
-mv ../nixos-config /mnt/persist/home/$USER/repositories
-
 reboot
