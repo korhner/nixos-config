@@ -9,7 +9,6 @@
     home-manager.enable = true;
     git.enable = true;
   };
-  programs.fuse.userAllowOther = true;
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
