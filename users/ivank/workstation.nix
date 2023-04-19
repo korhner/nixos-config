@@ -3,6 +3,7 @@
   imports = [
     inputs.impermanence.nixosModules.home-manager.impermanence
     features/cli
+    features/xfce.nix
   ];
 
   programs = {
