@@ -13,6 +13,5 @@
     };
   };
 
-
   hardware.enableRedistributableFirmware = true;
 }

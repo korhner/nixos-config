@@ -24,9 +24,9 @@
       isNormalUser = true;
       extraGroups = [ "wheel" ];
       packages = [
-        pkgs.home-manager
-        pkgs.git
+        pkgs.fish
       ];
+      shell = pkgs.fish;
     };
   };
 
