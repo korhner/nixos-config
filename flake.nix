@@ -31,12 +31,12 @@
           specialArgs = { inherit inputs outputs; };
           modules = [
             ./hosts/work-dell
-            home-manager.darwinModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.ivank = import ./users/ivank/workstation.nix;
-            }
+#            home-manager.darwinModules.home-manager
+#            {
+#              home-manager.useGlobalPkgs = true;
+#              home-manager.useUserPackages = true;
+#              home-manager.users.ivank = import ./users/ivank/workstation.nix;
+#            }
           ];
         };
       };
