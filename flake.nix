@@ -29,15 +29,15 @@
       nixosConfigurations = {
         "work-dell" = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
-          modules = [ ./hosts/work-dell ];
-        };
-      };
-
-      homeConfigurations = {
-        "ivank@work-dell" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages."x86_64-linux";
-          extraSpecialArgs = { inherit inputs outputs; };
-          modules = [ ./users/ivank/workstation.nix ];
+          modules = [
+            ./hosts/work-dell
+            home-manager.darwinModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.ivank = import ./users/ivank/workstation.nix;
+            }
+          ];
         };
       };
     };
