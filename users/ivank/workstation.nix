@@ -1,7 +1,7 @@
 { pkgs, config, lib, inputs, outputs, ... }: {
 
   imports = [
-    inputs.impermanence.nixosModules.home-manager.impermanence
+    inputs.home-manager.nixosModules.home-manager
     features/cli
   ];
 
