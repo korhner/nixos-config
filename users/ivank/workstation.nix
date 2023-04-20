@@ -1,4 +1,4 @@
-{ config, lib, inputs, ... }: {
+{ lib, inputs, ... }: {
 
   imports = [
     inputs.home-manager.nixosModules.home-manager
@@ -16,12 +16,12 @@
 
   home = {
     username = lib.mkDefault "ivank";
-    homeDirectory = lib.mkDefault "/home/${config.home.username}";
+    homeDirectory = lib.mkDefault "/home/ivank";
     stateVersion = lib.mkDefault "22.11";
     sessionPath = [ "$HOME/.local/bin" ];
 
     persistence = {
-      "/persist/home/${config.home.username}" = {
+      "/persist/home/ivank" = {
         directories = [
            "repositories"
 #          "Documents"
