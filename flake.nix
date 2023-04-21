@@ -19,13 +19,13 @@
     };
   };
 
-  outputs = inputs@{ nixpkgs, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, ... }: {
     nixosConfigurations = {
       "work-dell" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-           inputs.disko.nixosModules.disko
-           ./hosts/work-dell
+          inputs.disko.nixosModules.disko
+          ./hosts/work-dell
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
