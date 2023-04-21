@@ -19,7 +19,7 @@
     };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, ... }: {
+  outputs = inputs@{ nixpkgs, ... }: {
     nixosConfigurations = {
       "work-dell" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
