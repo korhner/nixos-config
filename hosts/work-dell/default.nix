@@ -18,23 +18,23 @@
 #    ../common/optional/xfce.nix
   ];
 
-  programs.fish.enable = true;
-  users.users = {
-    ivank = {
-      initialPassword = "qwe123";
-      isNormalUser = true;
-      extraGroups = [ "wheel" ];
-
-      shell = pkgs.fish;
-    };
-  };
-
-  programs.fuse.userAllowOther = true;
-
-  systemd.tmpfiles.rules = [
-      "d /home/ivank 0700 ivank -"
-      "d /persist/home/ivank 0700 ivank -"
-  ];
+#  programs.fish.enable = true;
+#  users.users = {
+#    ivank = {
+#      initialPassword = "qwe123";
+#      isNormalUser = true;
+#      extraGroups = [ "wheel" ];
+#
+#      shell = pkgs.fish;
+#    };
+#  };
+#
+#  programs.fuse.userAllowOther = true;
+#
+#  systemd.tmpfiles.rules = [
+#      "d /home/ivank 0700 ivank -"
+#      "d /persist/home/ivank 0700 ivank -"
+#  ];
 
   networking.hostName = "work-dell";
   system.stateVersion = "22.11";
