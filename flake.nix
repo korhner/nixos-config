@@ -24,7 +24,8 @@
       "work-dell" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./hosts/work-dell
+           inputs.disko.nixosModules.disko
+           ./hosts/work-dell
 #          home-manager.nixosModules.home-manager
 #          {
 #            home-manager.useGlobalPkgs = true;
