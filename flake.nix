@@ -29,7 +29,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.ivank = import ./users/ivank/workstation.nix;
+#            home-manager.users.ivank = import ./users/ivank/workstation.nix;
           }
         ];
       };
