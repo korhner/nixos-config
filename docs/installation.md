@@ -33,3 +33,5 @@ After reboot
 cd /persist/home/<USER>/repositories
 git clone https://github.com/korhner/nixos-config.git
 ```
+
+## TODO secrets management
