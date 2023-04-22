@@ -14,9 +14,15 @@ When adding a new file/dir to impermanence, follow this steps:
 - Rebuild system
 
 ## Auth to github
-```
+```shell
 cd /persist/home/ivank/.ssh
 ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+```
+
+## Easily clone all github repos
+```shell
+nix shell nixpkgs#ghorg
+ghorg clone Algebra-AI --match-regex=^gametuner- --token=<github_access_token>
 ```
 
 ## Debugging the flake
