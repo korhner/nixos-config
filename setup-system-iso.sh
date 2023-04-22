@@ -9,6 +9,9 @@ fi
 
 HOST="$1"
 
+mount -o remount,size=10G /nix/.rw-store
+mount -o remount,size=10G /nix/store
+
 mkdir -p ~/.config/nix
 echo "experimental-features = nix-command flakes" > ~/.config/nix/nix.conf
 

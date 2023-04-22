@@ -19,20 +19,32 @@ let
   '';
 
   impermanenceDiff = pkgs.writeShellScriptBin "impermanence-diff" ''
-    mkdir /tmp -p
-    MNTPOINT=$(mktemp -d)
-    (
-      mount -t btrfs -o subvol=/ /dev/mapper/crypted "$MNTPOINT"
-      trap 'umount "$MNTPOINT"' EXIT
+    #!/usr/bin/env bash
+    set -euo pipefail
 
-      btrfs subvolume snapshot -r /$MNTPOINT/root /$MNTPOINT/root-current
-      btrfs send -p /$MNTPOINT/root-blank /$MNTPOINT/root-current --no-data | btrfs receive --dump
-      btrfs subvolume snapshot delete /$MNTPOINT/root-current
+    mount -t btrfs -o subvol=/ /dev/mapper/crypted "/mnt"
+    trap 'umount /mnt' EXIT
+    for SUBVOLUME in root home
+    do
+      OLD_TRANSID=$(sudo btrfs subvolume find-new /mnt/$SUBVOLUME-blank 9999999)
+      OLD_TRANSID=${OLD_TRANSID#transid marker was }
 
-      btrfs subvolume snapshot -r /$MNTPOINT/home /$MNTPOINT/home-current
-      btrfs send -p /$MNTPOINT/home-blank /$MNTPOINT/home-current --no-data | btrfs receive --dump
-      btrfs subvolume snapshot delete /$MNTPOINT/home-current
-    )
+      sudo btrfs subvolume find-new "/mnt/$SUBVOLUME" "$OLD_TRANSID" |
+      sed '$d' |
+      cut -f17- -d' ' |
+      sort |
+      uniq |
+      while read path; do
+        path="/$path"
+        if [ -L "$path" ]; then
+          : # The path is a symbolic link, so is probably handled by NixOS already
+        elif [ -d "$path" ]; then
+          : # The path is a directory, ignore
+        else
+          echo "$path"
+        fi
+      done
+    done
   '';
 
 in {
