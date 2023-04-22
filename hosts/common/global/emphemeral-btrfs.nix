@@ -30,7 +30,7 @@
       ${config.system.build.formatScript}
       ${config.system.build.mountScript}
 
-      nixos-install --flake .#"${config.networking.hostName}" --no-root-passwd
+      nixos-install --flake .#work-dell --no-root-passwd
     ''
 
     pkgs.writeShellScriptBin "impermanence-diff" ''
