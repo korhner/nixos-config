@@ -18,7 +18,7 @@
      };
    };
 
-  outputs = { self, nixpkgs, home-manager, disko }: {
+  outputs = { self, nixpkgs, home-manager, disko, ... }: {
     nix.registry.nixpkgs.flake = nixpkgs;
     nixosConfigurations.work-dell = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
