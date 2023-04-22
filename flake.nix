@@ -24,9 +24,9 @@
       "work-dell" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
+          home-manager.nixosModules.home-manager
           ./hosts/work-dell
           ./users/ivank
-#          home-manager.nixosModules.home-manager
 #          {
 #            home-manager.useGlobalPkgs = true;
 #            home-manager.useUserPackages = true;
