@@ -18,7 +18,7 @@
      };
    };
 
-  outputs = { self, nixpkgs, home-manager, disko, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, disko, impermanence, ... }@inputs:
    let
      inherit (self) outputs;
    in
