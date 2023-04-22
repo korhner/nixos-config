@@ -43,15 +43,15 @@ in {
 
   fileSystems."/persist".neededForBoot = true;
 
-#  environment.persistence."/persist" = {
-#    directories = [
-#      "/var/lib/systemd"
-#      "/var/log"
-#    ];
-#    files = [
-#      "/etc/machine-id"
-#    ];
-#  };
+  environment.persistence."/persist" = {
+    directories = [
+      "/var/lib/systemd"
+      "/var/log"
+    ];
+    files = [
+      "/etc/machine-id"
+    ];
+  };
 
   environment.systemPackages = [ setupSystemIso impermanenceDiff ];
 

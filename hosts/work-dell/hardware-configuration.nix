@@ -1,5 +1,6 @@
 {  inputs, ... }: {
   imports = [
+    disko.nixosModules.disko
     ./disko.nix
   ];
 
