@@ -18,10 +18,10 @@
 
     # Add each flake input as a registry
     # To make nix3 commands consistent with the flake
-    registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
+#    registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
 
 #    # Map registries to channels
 #    # Very useful when using legacy commands
-#    nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
+    nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
   };
 }
