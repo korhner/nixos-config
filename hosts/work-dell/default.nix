@@ -19,7 +19,7 @@
 
   programs.fish.enable = true;
   users.users.ivank = {
-    initialPassword = "qwe123";
+    hashedPassword = "$6$Bkdr63l9qwx/EFX3$K3g3mRd5Pl9v.Evoy0xbH3bISX.A5KraC8SaY8EXNByRQ/CytWKTrnSyoYmUozEVPrTGQA5RgIoPDrRrETSDh1";
     isNormalUser = true;
     extraGroups = [ "wheel" ];
     shell = pkgs.fish;
