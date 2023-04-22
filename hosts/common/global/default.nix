@@ -3,7 +3,7 @@
 {
   imports = [
     ./docker.nix
-#    ./locale.nix
+    ./locale.nix
 #    ./nix.nix
   ];
 
