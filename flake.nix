@@ -24,7 +24,6 @@
       "work-dell" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          disko.nixosModules.disko
           ./hosts/work-dell
 #          home-manager.nixosModules.home-manager
 #          {
