@@ -26,7 +26,7 @@
         modules = [
           home-manager.nixosModules.home-manager
           ./hosts/work-dell
-          ./users/ivank
+#          ./users/ivank
 #          {
 #            home-manager.useGlobalPkgs = true;
 #            home-manager.useUserPackages = true;
