@@ -27,25 +27,9 @@ git clone https://github.com/korhner/nixos-config.git
 bash setup-system-iso.sh <HOST>
 ```
 
-Setup home manager
 ```shell
-nix-shell -p home-manager git
-mkdir /persist/home/<USER>/repositories
 cd /persist/home/<USER>/repositories
 git clone https://github.com/korhner/nixos-config.git
-home-manager switch --flake .
-reboot
-```
-
-Test everything works
-```shell
-cd ~/repositories/nixos-config
-sudo nixos-rebuild switch --flake .
-home-manager switch --flake .
-```
-
-```shell
-passwd (change user password)
 ```
 
 ## Maintaining the system

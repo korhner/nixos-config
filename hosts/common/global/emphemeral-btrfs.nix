@@ -30,8 +30,8 @@ let
       OLD_TRANSID=${OLD_TRANSID#transid marker was }
 
       sudo btrfs subvolume find-new "/mnt/$SUBVOLUME" "$OLD_TRANSID" |
-      sed '$d' |
-      cut -f17- -d' ' |
+      sed "$d" |
+      cut -f17- -d" " |
       sort |
       uniq |
       while read path; do
