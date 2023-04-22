@@ -14,22 +14,10 @@
 #      common-hidpi = import ./common/hidpi.nix;
     ./hardware-configuration.nix
     ../common/global
-    ../common/optional/emphemeral-btrfs.nix
     ../common/optional/xfce.nix
   ];
 
-  programs.fish.enable = true;
-  users.users = {
-    ivank = {
-      initialPassword = "qwe123";
-      isNormalUser = true;
-      extraGroups = [ "wheel" ];
 
-      shell = pkgs.fish;
-    };
-  };
-
-  programs.fuse.userAllowOther = true;
 
   systemd.tmpfiles.rules = [
       "d /home/ivank 0700 ivank -"

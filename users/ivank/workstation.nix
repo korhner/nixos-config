@@ -1,7 +1,7 @@
 { lib, inputs, ... }: {
 
   imports = [
-    inputs.home-manager.nixosModules.home-manager
+    inputs.impermanence.nixosModules.home-manager.impermanence
     features/cli
   ];
 
@@ -16,7 +16,7 @@
 
   home = {
     username = lib.mkDefault "ivank";
-    homeDirectory = lib.mkDefault "/home/ivank";
+    homeDirectory = lib.mkDefault "/home/${config.home.username}";
     stateVersion = lib.mkDefault "22.11";
     sessionPath = [ "$HOME/.local/bin" ];
 

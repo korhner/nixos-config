@@ -1,6 +1,7 @@
-{  ... }: {
+{  inputs, ... }: {
   imports = [
     ./disko.nix
+    inputs.disko.nixosModules.disko
   ];
 
   boot = {
