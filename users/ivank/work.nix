@@ -25,6 +25,7 @@
       "/persist/home/ivank" = {
         directories = [
            "repositories"
+           ".ssh"
 #          "Documents"
 #          "Downloads"
 #          "Pictures"

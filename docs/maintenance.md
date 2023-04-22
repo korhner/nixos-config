@@ -13,6 +13,12 @@ When adding a new file/dir to impermanence, follow this steps:
 - Add it to nix. System and home impermanence are separate configs
 - Rebuild system
 
+## Auth to github
+```
+cd /persist/home/ivank/.ssh
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+```
+
 ## Debugging the flake
 ```shell
 nix repl
