@@ -13,7 +13,7 @@
 #      common-gpu-nvidia-disable = import ./common/gpu/nvidia/disable.nix;
 #      common-hidpi = import ./common/hidpi.nix;
     ./hardware-configuration.nix
-#    ../common/global
+    ../common/global
 #    ../common/optional/emphemeral-btrfs.nix
 #    ../common/optional/xfce.nix
   ];
