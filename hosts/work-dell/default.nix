@@ -1,5 +1,5 @@
 # System configuration for my laptop
-{ ... }: {
+{ pkgs, ... }: {
   imports = [
      # TODO check this: https://github.com/NixOS/nixos-hardware/blob/master/flake.nix
 #    inputs.hardware.nixosModules.common-cpu-intel
