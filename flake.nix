@@ -22,6 +22,7 @@
     nix.registry.nixpkgs.flake = nixpkgs;
     nixosConfigurations.work-dell = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
+      specialArgs = { inherit inputs outputs; };
       modules = [
         ./hosts/work-dell
         disko.nixosModules.disko
