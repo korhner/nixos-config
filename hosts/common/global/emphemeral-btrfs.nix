@@ -29,8 +29,8 @@ let
       OLD_TRANSID=$(btrfs subvolume find-new /mnt/$SUBVOLUME-blank 9999999)
       x="''${OLD_TRANSID#transid marker was }"
       btrfs subvolume find-new "/mnt/$SUBVOLUME" "$OLD_TRANSID" |
-      sed "$d" |
-      cut -f17- -d" " |
+      sed '$d' |
+      cut -f17- -d' ' |
       sort |
       uniq |
       while read path; do
