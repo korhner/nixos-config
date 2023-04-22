@@ -31,7 +31,7 @@
 #          ".local/bin"
         ];
         files = [
-          "local/share/fish/fish_history"
+          ".local/share/fish/fish_history"
         ];
         allowOther = true;
       };
