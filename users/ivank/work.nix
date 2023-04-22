@@ -9,6 +9,7 @@
     home-manager.enable = true;
     git.enable = true;
     htop.enable = true;
+    firefox.enable = true;
   };
 
   # Nicely reload system units when changing configs
