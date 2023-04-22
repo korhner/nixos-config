@@ -38,7 +38,7 @@ let
 in {
 
   imports = [
-#    inputs.impermanence.nixosModules.impermanence
+    inputs.impermanence.nixosModules.impermanence
   ];
 
   fileSystems."/persist".neededForBoot = true;
