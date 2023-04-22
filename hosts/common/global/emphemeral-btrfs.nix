@@ -27,7 +27,7 @@ let
     for SUBVOLUME in root home
     do
       OLD_TRANSID=$(btrfs subvolume find-new /mnt/$SUBVOLUME-blank 9999999)
-      x="''${OLD_TRANSID#transid marker was }"
+      OLD_TRANSID="''${OLD_TRANSID#transid marker was }"
       btrfs subvolume find-new "/mnt/$SUBVOLUME" "$OLD_TRANSID" |
       sed '$d' |
       cut -f17- -d' ' |
