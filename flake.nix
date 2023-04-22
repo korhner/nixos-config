@@ -1,39 +1,32 @@
 {
-  description = "My NixOS configuration";
+  description = "NixOS configuration flake";
 
-  inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-master.url = "github:nixos/nixpkgs/master";
+ inputs = {
+     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    hardware.url = "github:nixos/nixos-hardware";
-    impermanence.url = "github:nix-community/impermanence";
+     hardware.url = "github:nixos/nixos-hardware";
+     impermanence.url = "github:nix-community/impermanence";
 
-    disko = {
-      url = "github:nix-community/disko";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+     disko = {
+       url = "github:nix-community/disko";
+       inputs.nixpkgs.follows = "nixpkgs";
+     };
 
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-  };
+     home-manager = {
+       url = "github:nix-community/home-manager";
+       inputs.nixpkgs.follows = "nixpkgs";
+     };
+   };
 
-  outputs = { nixpkgs, home-manager, ... }: {
-    nixosConfigurations = {
-      "work-dell" = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          home-manager.nixosModules.home-manager
-          ./hosts/work-dell
-#          ./users/ivank
-#          {
-#            home-manager.useGlobalPkgs = true;
-#            home-manager.useUserPackages = true;
-#            home-manager.users.ivank = import ./users/ivank/workstation.nix;
-#          }
-        ];
-      };
+  outputs = { self, nixpkgs, home-manager, disko }: {
+    nix.registry.nixpkgs.flake = nixpkgs;
+    nixosConfigurations.work-dell = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        ./hosts/work-dell
+        disko.nixosModules.disko
+        home-manager.nixosModules.home-manager
+      ];
     };
   };
 }

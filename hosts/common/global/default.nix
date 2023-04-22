@@ -1,11 +1,8 @@
-# This file (and the global directory) holds config that i use on all hosts
 { lib, inputs, outputs, ... }:
 {
   imports = [
-    inputs.home-manager.nixosModules.home-manager
-    ./docker.nix
-    ./locale.nix
     ./nix.nix
+    ./emphemeral-btrfs.nix
   ];
 
   nixpkgs = {
@@ -15,4 +12,16 @@
   };
 
   hardware.enableRedistributableFirmware = true;
+
+  virtualisation.docker = {
+    enable = true;
+  };
+
+  i18n = {
+    defaultLocale = lib.mkDefault "en_US.UTF-8";
+    supportedLocales = lib.mkDefault [
+      "en_US.UTF-8/UTF-8"
+    ];
+  };
+  time.timeZone = lib.mkDefault "Europe/Belgrade";
 }

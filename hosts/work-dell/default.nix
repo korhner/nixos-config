@@ -13,11 +13,9 @@
 #      common-gpu-nvidia-disable = import ./common/gpu/nvidia/disable.nix;
 #      common-hidpi = import ./common/hidpi.nix;
     ./hardware-configuration.nix
-#    ../common/global
+    ../common/global
     ../common/optional/xfce.nix
   ];
-
-
 
   systemd.tmpfiles.rules = [
       "d /home/ivank 0700 ivank -"
