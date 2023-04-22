@@ -14,7 +14,7 @@
 #      common-hidpi = import ./common/hidpi.nix;
     ./hardware-configuration.nix
     ../common/global
-#    ../common/optional/emphemeral-btrfs.nix
+    ../common/optional/emphemeral-btrfs.nix
     ../common/optional/xfce.nix
   ];
 
