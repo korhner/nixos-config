@@ -14,7 +14,7 @@
 #      common-hidpi = import ./common/hidpi.nix;
     ./hardware-configuration.nix
 #    ../common/global
-    ../common/optional/xfce.nix
+#    ../common/optional/xfce.nix
   ];
 
   systemd.tmpfiles.rules = [
