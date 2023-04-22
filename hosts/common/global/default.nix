@@ -1,7 +1,7 @@
 { lib, inputs, outputs, ... }:
 {
   imports = [
-#    ./nix.nix
+    ./nix.nix
 #    ./emphemeral-btrfs.nix
   ];
 
