@@ -33,7 +33,7 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.jdoe = import ./users/ivank/work.nix;
+          home-manager.users.ivank = import ./users/ivank/work.nix;
           home-manager.extraSpecialArgs = { inherit inputs outputs; };
         }
       ];
