@@ -29,7 +29,6 @@
       specialArgs = { inherit inputs outputs; };
       modules = [
         ./hosts/work-dell
-#        disko.nixosModules.disko
         home-manager.nixosModules.home-manager
       ];
     };

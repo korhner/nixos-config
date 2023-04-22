@@ -1,7 +1,7 @@
 # https://grahamc.com/blog/erase-your-darlings/
 # https://mt-caret.github.io/blog/posts/2020-06-29-optin-state.html
 
-{ pkgs, lib, config, inputs, impermanence, ... }:
+{ pkgs, lib, config, inputs, ... }:
 let
   hostname = config.networking.hostName;
 
@@ -38,7 +38,7 @@ let
 in {
 
   imports = [
-    impermanence.nixosModules.impermanence
+    inputs.impermanence.nixosModules.impermanence
   ];
 
   fileSystems."/persist".neededForBoot = true;

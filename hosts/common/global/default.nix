@@ -1,8 +1,8 @@
 { lib, inputs, outputs, ... }:
 {
   imports = [
-#    ./nix.nix
-#    ./emphemeral-btrfs.nix
+    ./nix.nix
+    ./emphemeral-btrfs.nix
   ];
 
   nixpkgs = {
