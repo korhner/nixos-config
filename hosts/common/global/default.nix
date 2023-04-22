@@ -2,7 +2,7 @@
 {
   imports = [
     ./nix.nix
-#    ./emphemeral-btrfs.nix
+    ./emphemeral-btrfs.nix
   ];
 
   nixpkgs = {

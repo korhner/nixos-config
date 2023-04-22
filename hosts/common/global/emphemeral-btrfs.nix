@@ -3,8 +3,6 @@
 
 { pkgs, lib, config, inputs, ... }:
 let
-  hostname = config.networking.hostName;
-
   setupSystemIso = pkgs.writeShellScriptBin "setup-system-iso" ''
     if [ "$(hostname)" != "nixos" ]
     then
@@ -15,7 +13,7 @@ let
     ${config.system.build.formatScript}
     ${config.system.build.mountScript}
 
-    nixos-install --flake .#"${hostname}" --no-root-passwd
+    nixos-install --flake .#"${config.networking.hostName}" --no-root-passwd
   '';
 
   impermanenceDiff = pkgs.writeShellScriptBin "impermanence-diff" ''
