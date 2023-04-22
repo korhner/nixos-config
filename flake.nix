@@ -30,6 +30,12 @@
       modules = [
         ./hosts/work-dell
         home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.jdoe = import ./users/ivank/work.nix;
+          home-manager.extraSpecialArgs = { inherit inputs outputs; };
+        }
       ];
     };
   };

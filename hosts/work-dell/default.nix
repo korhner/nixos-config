@@ -17,6 +17,17 @@
     ../common/optional/xfce.nix
   ];
 
+  programs.fish.enable = true;
+  users.users.ivank = {
+    initialPassword = "qwe123";
+    isNormalUser = true;
+    extraGroups = [ "wheel" ];
+    shell = pkgs.fish;
+    packages = [ pkgs.home-manager ];
+  };
+
+  programs.fuse.userAllowOther = true;
+
   systemd.tmpfiles.rules = [
       "d /home/ivank 0700 ivank -"
       "d /persist/home/ivank 0700 ivank -"
