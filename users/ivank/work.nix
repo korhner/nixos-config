@@ -30,6 +30,9 @@
 #          "Videos"
 #          ".local/bin"
         ];
+        files = [
+          "local/share/fish/fish_history"
+        ];
         allowOther = true;
       };
     };
