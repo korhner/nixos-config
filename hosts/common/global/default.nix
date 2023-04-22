@@ -2,7 +2,7 @@
 { lib, inputs, outputs, ... }:
 {
   imports = [
-#    ./docker.nix
+    ./docker.nix
 #    ./locale.nix
 #    ./nix.nix
   ];
