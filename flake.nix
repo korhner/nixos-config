@@ -25,6 +25,7 @@
         system = "x86_64-linux";
         modules = [
           ./hosts/work-dell
+          ./users/ivank
 #          home-manager.nixosModules.home-manager
 #          {
 #            home-manager.useGlobalPkgs = true;
