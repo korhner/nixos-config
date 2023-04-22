@@ -4,7 +4,7 @@
   imports = [
     ./docker.nix
     ./locale.nix
-#    ./nix.nix
+    ./nix.nix
   ];
 
   nixpkgs = {
