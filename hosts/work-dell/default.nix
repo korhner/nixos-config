@@ -18,16 +18,16 @@
     ../common/optional/xfce.nix
   ];
 
-  programs.fish.enable = true;
-  users.users = {
-    ivank = {
-      initialPassword = "qwe123";
-      isNormalUser = true;
-      extraGroups = [ "wheel" ];
-
-      shell = pkgs.fish;
-    };
-  };
+#  programs.fish.enable = true;
+#  users.users = {
+#    ivank = {
+#      initialPassword = "qwe123";
+#      isNormalUser = true;
+#      extraGroups = [ "wheel" ];
+#
+#      shell = pkgs.fish;
+#    };
+#  };
 
   programs.fuse.userAllowOther = true;
 
