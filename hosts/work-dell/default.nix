@@ -1,5 +1,5 @@
 # System configuration for my laptop
-{ ... }: {
+{ pkgs, ... }: {
   imports = [
      # TODO check this: https://github.com/NixOS/nixos-hardware/blob/master/flake.nix
 #    inputs.hardware.nixosModules.common-cpu-intel
@@ -13,21 +13,21 @@
 #      common-gpu-nvidia-disable = import ./common/gpu/nvidia/disable.nix;
 #      common-hidpi = import ./common/hidpi.nix;
     ./hardware-configuration.nix
-    ../common/global
-    ../common/optional/emphemeral-btrfs.nix
-    ../common/optional/xfce.nix
+#    ../common/global
+#    ../common/optional/emphemeral-btrfs.nix
+#    ../common/optional/xfce.nix
   ];
 
-#  programs.fish.enable = true;
-#  users.users = {
-#    ivank = {
-#      initialPassword = "qwe123";
-#      isNormalUser = true;
-#      extraGroups = [ "wheel" ];
-#
-#      shell = pkgs.fish;
-#    };
-#  };
+  programs.fish.enable = true;
+  users.users = {
+    ivank = {
+      initialPassword = "qwe123";
+      isNormalUser = true;
+      extraGroups = [ "wheel" ];
+
+      shell = pkgs.fish;
+    };
+  };
 
   programs.fuse.userAllowOther = true;
 
