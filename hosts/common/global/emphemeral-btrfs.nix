@@ -21,7 +21,7 @@ let
   impermanenceDiff = pkgs.writeShellScriptBin "impermanence-diff" ''
     #!/usr/bin/env bash
     set -euo pipefail
-
+    mkdir -p /mnt
     mount -t btrfs -o subvol=/ /dev/mapper/crypted "/mnt"
     trap 'umount /mnt' EXIT
     for SUBVOLUME in root home
