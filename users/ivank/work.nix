@@ -8,6 +8,7 @@
   programs = {
     home-manager.enable = true;
     git.enable = true;
+    htop.enable = true;
   };
 
   # Nicely reload system units when changing configs
