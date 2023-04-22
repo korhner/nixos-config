@@ -1,39 +1,7 @@
 # https://grahamc.com/blog/erase-your-darlings/
 # https://mt-caret.github.io/blog/posts/2020-06-29-optin-state.html
 
-{ pkgs, lib, config, inputs, ... }:
-let
-  setupSystemIso = pkgs.writeShellScriptBin "setup-system-iso" ''
-    if [ "$(hostname)" != "nixos" ]
-    then
-      echo "Must be run on live image"
-      exit 1
-    fi
-
-    ${config.system.build.formatScript}
-    ${config.system.build.mountScript}
-
-    nixos-install --flake .#"${config.networking.hostName}" --no-root-passwd
-  '';
-
-  impermanenceDiff = pkgs.writeShellScriptBin "impermanence-diff" ''
-    mkdir /tmp -p
-    MNTPOINT=$(mktemp -d)
-    (
-      mount -t btrfs -o subvol=/ /dev/mapper/crypted "$MNTPOINT"
-      trap 'umount "$MNTPOINT"' EXIT
-
-      btrfs subvolume snapshot -r /$MNTPOINT/root /$MNTPOINT/root-current
-      btrfs send -p /$MNTPOINT/root-blank /$MNTPOINT/root-current --no-data | btrfs receive --dump
-      btrfs subvolume snapshot delete /$MNTPOINT/root-current
-
-      btrfs subvolume snapshot -r /$MNTPOINT/home /$MNTPOINT/home-current
-      btrfs send -p /$MNTPOINT/home-blank /$MNTPOINT/home-current --no-data | btrfs receive --dump
-      btrfs subvolume snapshot delete /$MNTPOINT/home-current
-    )
-  '';
-
-in {
+{ pkgs, lib, config, inputs, ... }: {
 
   imports = [
     inputs.impermanence.nixosModules.impermanence
@@ -51,7 +19,38 @@ in {
     ];
   };
 
-  environment.systemPackages = [ setupSystemIso impermanenceDiff ];
+  environment.systemPackages = [
+    pkgs.writeShellScriptBin "setup-system-iso" ''
+      if [ "$(hostname)" != "nixos" ]
+      then
+        echo "Must be run on live image"
+        exit 1
+      fi
+
+      ${config.system.build.formatScript}
+      ${config.system.build.mountScript}
+
+      nixos-install --flake .#"${config.networking.hostName}" --no-root-passwd
+    ''
+
+    pkgs.writeShellScriptBin "impermanence-diff" ''
+      mkdir /tmp -p
+      MNTPOINT=$(mktemp -d)
+      (
+        mount -t btrfs -o subvol=/ /dev/mapper/crypted "$MNTPOINT"
+        trap 'umount "$MNTPOINT"' EXIT
+
+        btrfs subvolume snapshot -r /$MNTPOINT/root /$MNTPOINT/root-current
+        btrfs send -p /$MNTPOINT/root-blank /$MNTPOINT/root-current --no-data | btrfs receive --dump
+        btrfs subvolume snapshot delete /$MNTPOINT/root-current
+
+        btrfs subvolume snapshot -r /$MNTPOINT/home /$MNTPOINT/home-current
+        btrfs send -p /$MNTPOINT/home-blank /$MNTPOINT/home-current --no-data | btrfs receive --dump
+        btrfs subvolume snapshot delete /$MNTPOINT/home-current
+      )
+    ''
+
+  ];
 
   boot.initrd.postDeviceCommands = pkgs.lib.mkBefore ''
     mkdir /tmp -p
