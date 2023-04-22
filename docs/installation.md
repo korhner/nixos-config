@@ -8,6 +8,7 @@
         - Value needs to be set both on luks (end) and swap (start) partitions
 - Modify default.nix
     - Change user, hostname, ...
+    - hashed user password is generated using `mkpasswd -m sha-512`
 
 ## Installing nixos
 - Download nixos iso minimal image and boot to it (TODO more instructions)
