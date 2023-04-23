@@ -2,13 +2,14 @@
 
   imports = [
     inputs.impermanence.nixosModules.home-manager.impermanence
-    features/cli
+    ./features/vscode.nix
   ];
 
   programs = {
     home-manager.enable = true;
     git.enable = true;
     htop.enable = true;
+    vim.enable = true;
     firefox.enable = true;
   };
 
