@@ -2,7 +2,6 @@
 
   imports = [
     inputs.impermanence.nixosModules.home-manager.impermanence
-    ./features/vscode.nix
   ];
 
   programs = {
@@ -10,7 +9,16 @@
     git.enable = true;
     htop.enable = true;
     vim.enable = true;
+    direnv.enable = true;
     firefox.enable = true;
+
+    vscode = {
+      enable = true;
+      extensions = with pkgs.vscode-extensions; [
+        bbenoist.nix
+        ms-python.python
+      ];
+    };
   };
 
   # Nicely reload system units when changing configs

@@ -1,28 +1,18 @@
-{ pkgs }:
-
-let
-  python = pkgs.python310;
-in
 {
   inputs = {
-    nixpkgs.url = "nixpkgs-unstable";
+    mach-nix.url = "mach-nix/3.5.0";
   };
 
-  outputs = { self, nixpkgs }: {
-    defaultPackage.x86_64-linux = python.withPackages (ps: with ps; [
-      pkgs.pip
-    ]);
-
-    devShell.x86_64-linux = python.mkShell {
-      buildInputs = with pkgs; [
-        pkgs.pip
-      ];
+  outputs = {self, nixpkgs, mach-nix }@inp:
+    let
+      l = nixpkgs.lib // builtins;
+      supportedSystems = [ "x86_64-linux" "aarch64-darwin" ];
+      forAllSystems = f: l.genAttrs supportedSystems
+        (system: f system (import nixpkgs {inherit system;}));
+    in
+    {
+      defaultPackage = forAllSystems (system: pkgs: mach-nix.lib."${system}".mkPython {
+        requirements = builtins.readFile ./requirements.txt;
+      });
     };
-
-    shellHook = ''
-      export PYTHONPATH="${PYTHONPATH:+$PYTHONPATH:}$PWD"
-    '';
-
-    packages = import ./requirements.txt { inherit pkgs; python = python; };
-  };
 }

@@ -24,7 +24,6 @@
     isNormalUser = true;
     extraGroups = [ "wheel" ];
     shell = pkgs.fish;
-    packages = [ pkgs.home-manager ];
   };
 
   programs.fuse.userAllowOther = true;
