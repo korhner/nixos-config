@@ -1,12 +1,12 @@
-{ pkgs }:
-let
-  python = pkgs.python310;
-in
 {
   inputs = {
     nixpkgs.url = "nixpkgs-unstable";
   };
-  outputs = { self, nixpkgs }: {
+  outputs = { self, nixpkgs }:
+  let
+    python = pkgs.python310;
+  in
+  {
     defaultPackage.x86_64-linux = python.withPackages (ps: with ps; [
       pkgs.pip
     ]);
