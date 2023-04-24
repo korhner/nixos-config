@@ -11,6 +11,7 @@
         (system: f system (import nixpkgs {inherit system;}));
     in
     {
+      python = "python310";
       defaultPackage = forAllSystems (system: pkgs: mach-nix.lib."${system}".mkPython {
         requirements = builtins.readFile ./requirements.txt;
       });

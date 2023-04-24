@@ -19,6 +19,7 @@
   
   virtualisation.vmware.guest.enable = true;  # TODO remove if not in vm
   programs.fish.enable = true;
+  programs.fish.interactiveShellInit = "direnv hook fish | source";
   users.users.ivank = {
     hashedPassword = "$6$Bkdr63l9qwx/EFX3$K3g3mRd5Pl9v.Evoy0xbH3bISX.A5KraC8SaY8EXNByRQ/CytWKTrnSyoYmUozEVPrTGQA5RgIoPDrRrETSDh1";
     isNormalUser = true;
