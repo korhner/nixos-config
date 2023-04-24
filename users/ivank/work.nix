@@ -1,4 +1,4 @@
-{ lib, inputs, config, ... }: {
+{ lib, inputs, config, pkgs, ... }: {
 
   imports = [
     inputs.impermanence.nixosModules.home-manager.impermanence
