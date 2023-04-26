@@ -28,7 +28,7 @@
   };
 
   programs.fuse.userAllowOther = true;
-
+  
   systemd.tmpfiles.rules = [
       "d /home/ivank 0700 ivank -"
       "d /persist/home/ivank 0700 ivank -"
