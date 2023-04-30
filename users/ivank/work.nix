@@ -19,7 +19,7 @@
       extensions = with pkgs.vscode-extensions; [
         bbenoist.nix
         ms-python.python
-        cab404.vscode-direnv
+        mkhl.direnv
       ];
     };
   };
