@@ -10,5 +10,6 @@
       };
     };
     displayManager.defaultSession = "xfce";
+    windowManager.i3.enable = true;
   };
 }
