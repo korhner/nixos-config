@@ -4,6 +4,8 @@
     inputs.impermanence.nixosModules.home-manager.impermanence
   ];
 
+  xsession.windowManager.i3.enable = true;
+
   programs = {
     home-manager.enable = true;
     git.enable = true;
