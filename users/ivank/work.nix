@@ -4,7 +4,6 @@
     inputs.impermanence.nixosModules.home-manager.impermanence
   ];
 
-
   programs = {
     home-manager.enable = true;
     git.enable = true;

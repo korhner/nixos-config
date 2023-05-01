@@ -1,4 +1,4 @@
-{ ... }: {
+{ pkgs, ... }: {
   services.xserver = {
     enable = true;
     desktopManager = {
@@ -9,7 +9,11 @@
         enableXfwm = false;
       };
     };
-    displayManager.defaultSession = "xfce";
-    windowManager.i3.enable = true;
+    displayManager.defaultSession = "xfce+i3";
+    windowManager.i3 = {
+      enable = true;
+      extraPackages = with pkgs; [
+      ];
+    };
   };
 }
