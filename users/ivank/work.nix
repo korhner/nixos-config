@@ -25,15 +25,15 @@
 #            block = "net";
 #            device = "enp59s0u2u4";
 #          }
-          {
-            block = "weather";
-            service = {
-              name = "openweathermap";
-              inherit (secrets.openweathermap) api_key;
-              city_id = "2155416";
-              units = "metric";
-            };
-          }
+#          {
+#            block = "weather";
+#            service = {
+#              name = "openweathermap";
+#              inherit (secrets.openweathermap) api_key;
+#              city_id = "2155416";
+#              units = "metric";
+#            };
+#          }
           {
             block = "sound";
           }
