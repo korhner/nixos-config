@@ -3,6 +3,18 @@
   imports = [
     inputs.impermanence.nixosModules.home-manager.impermanence
   ];
+  
+  xserver.windowManager.i3 = {
+    enable = true;
+      
+    config = {
+      bars = [
+        {
+          command = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-tepid.toml";
+        }
+      ];
+    };
+  };
 
   programs = {
     home-manager.enable = true;
@@ -34,9 +46,9 @@
 #              units = "metric";
 #            };
 #          }
-          {
-            block = "sound";
-          }
+#          {
+#            block = "sound";
+#          }
           {
             block = "time";
             format = "%d/%m %R";
