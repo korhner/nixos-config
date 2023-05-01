@@ -4,7 +4,7 @@
     inputs.impermanence.nixosModules.home-manager.impermanence
   ];
   
-  xserver.windowManager.i3 = {
+  xsession.windowManager.i3 = {
     enable = true;
       
     config = {
