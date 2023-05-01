@@ -14,9 +14,9 @@
 #      common-hidpi = import ./common/hidpi.nix;
     ./hardware-configuration.nix
     ../common/global
-    #../common/optional/xfce-i3.nix
+    ../common/optional/no-desktop.nix
   ];
-  
+
   virtualisation.vmware.guest.enable = true;  # TODO remove if not in vm
   programs.fish.enable = true;
   programs.fish.interactiveShellInit = "direnv hook fish | source";
