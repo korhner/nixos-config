@@ -3,18 +3,6 @@
   imports = [
     inputs.impermanence.nixosModules.home-manager.impermanence
   ];
-  
-  xsession.windowManager.i3 = {
-    enable = true;
-      
-    config = {
-      bars = [
-        {
-          command = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-tepid.toml";
-        }
-      ];
-    };
-  };
 
   programs = {
     home-manager.enable = true;
@@ -23,39 +11,6 @@
     vim.enable = true;
     direnv.enable = true;
     firefox.enable = true;
-
-    i3status-rust = {
-      enable = true;
-      bars.tepid = {
-        icons = "awesome5";
-        theme = "native";
-        blocks = [
-          {
-            block = "focused_window";
-          }
-#          {
-#            block = "net";
-#            device = "enp59s0u2u4";
-#          }
-#          {
-#            block = "weather";
-#            service = {
-#              name = "openweathermap";
-#              inherit (secrets.openweathermap) api_key;
-#              city_id = "2155416";
-#              units = "metric";
-#            };
-#          }
-#          {
-#            block = "sound";
-#          }
-          {
-            block = "time";
-            format = "%d/%m %R";
-          }
-        ];
-      };
-    };
 
     vscode = {
       enable = true;

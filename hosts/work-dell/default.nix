@@ -14,7 +14,7 @@
 #      common-hidpi = import ./common/hidpi.nix;
     ./hardware-configuration.nix
     ../common/global
-    ../common/optional/no-desktop.nix
+    ../common/optional/xfce.nix
   ];
 
   virtualisation.vmware.guest.enable = true;  # TODO remove if not in vm
