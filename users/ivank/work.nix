@@ -65,6 +65,9 @@
     stateVersion = lib.mkDefault "22.11";
     sessionPath = [ "$HOME/.local/bin" ];
 
+    packages = with pkgs; [
+      slack
+    ];
     persistence = {
       "/persist/home/ivank" = {
         directories = [
