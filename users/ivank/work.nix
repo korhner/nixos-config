@@ -12,6 +12,39 @@
     direnv.enable = true;
     firefox.enable = true;
 
+    i3status-rust = {
+      enable = true;
+      bars.tepid = {
+        icons = "awesome5";
+        theme = "native";
+        blocks = [
+          {
+            block = "focused_window";
+          }
+#          {
+#            block = "net";
+#            device = "enp59s0u2u4";
+#          }
+          {
+            block = "weather";
+            service = {
+              name = "openweathermap";
+              inherit (secrets.openweathermap) api_key;
+              city_id = "2155416";
+              units = "metric";
+            };
+          }
+          {
+            block = "sound";
+          }
+          {
+            block = "time";
+            format = "%d/%m %R";
+          }
+        ];
+      };
+    };
+
     vscode = {
       enable = true;
       extensions = with pkgs.vscode-extensions; [
