@@ -11,6 +11,7 @@
     vim.enable = true;
     direnv.enable = true;
     firefox.enable = true;
+    rofi.enable = true;
 
     vscode = {
       enable = true;
