@@ -41,6 +41,9 @@
         directories = [
            "repositories"
            ".ssh"
+           ".cache"
+           ".config/Slack"
+           ".mozilla"
 #          "Documents"
 #          "Downloads"
 #          "Pictures"
