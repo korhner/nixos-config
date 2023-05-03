@@ -10,8 +10,8 @@
     htop.enable = true;
     vim.enable = true;
     direnv.enable = true;
-    firefox.enable = true;
     rofi.enable = true;
+    google-chrome.enable = true;
 
     vscode = {
       enable = true;
@@ -36,8 +36,6 @@
     packages = with pkgs; [
       slack
       google-cloud-sdk
-      chromium
-      google-chrome
     ];
 
     persistence = {
@@ -47,7 +45,6 @@
            ".ssh"
            ".cache"
            ".config/Slack"
-           ".mozilla"
 #          "Documents"
 #          "Downloads"
 #          "Pictures"
