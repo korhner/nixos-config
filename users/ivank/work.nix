@@ -47,6 +47,7 @@
            ".config/Slack"
            ".config/google-chrome"
            ".config/gcloud"
+           ".local/share/direnv/allow"
 #          "Documents"
 #          "Downloads"
 #          "Pictures"
