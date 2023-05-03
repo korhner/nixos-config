@@ -45,6 +45,7 @@
            ".ssh"
            ".cache"
            ".config/Slack"
+           ".config/google-chrome"
 #          "Documents"
 #          "Downloads"
 #          "Pictures"
