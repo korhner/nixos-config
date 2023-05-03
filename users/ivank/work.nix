@@ -46,6 +46,7 @@
            ".cache"
            ".config/Slack"
            ".config/google-chrome"
+           ".config/gcloud"
 #          "Documents"
 #          "Downloads"
 #          "Pictures"
