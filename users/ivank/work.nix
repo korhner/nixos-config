@@ -35,7 +35,11 @@
 
     packages = with pkgs; [
       slack
+      google-cloud-sdk
+      chromium
+      google-chrome
     ];
+
     persistence = {
       "/persist/home/ivank" = {
         directories = [
