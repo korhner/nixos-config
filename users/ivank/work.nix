@@ -5,6 +5,14 @@
   ];
 
   programs = {
+    bash = {
+      enable = true;
+      enableCompletion = true;
+      bashrcExtra = ''
+      eval "$(direnv hook bash)" 
+      '';
+    };
+
     home-manager.enable = true;
     git.enable = true;
     htop.enable = true;
@@ -12,7 +20,7 @@
     direnv.enable = true;
     rofi.enable = true;
     google-chrome.enable = true;
-
+    
     vscode = {
       enable = true;
       extensions = with pkgs.vscode-extensions; [
@@ -55,7 +63,7 @@
 #          ".local/bin"
         ];
         files = [
-          ".local/share/fish/fish_history"
+          # ".local/share/fish/fish_history"
         ];
         allowOther = true;
       };
