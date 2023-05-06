@@ -63,7 +63,7 @@
 #          ".local/bin"
         ];
         files = [
-          # ".local/share/fish/fish_history"
+          ".bash_history"
         ];
         allowOther = true;
       };
